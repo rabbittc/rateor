@@ -14,14 +14,23 @@ Template.sample_test.events({
         var id = this._id;
         bootbox.confirm("Are you sure to delete [" + id + "]?", function (result) {
             if (result) {
-                Sample.Collection.Test.remove(id, function (error) {
-                    if (error) {
-                        toastr.error(error.message, 'Error');
-                    } else {
-                        toastr.success(App.Message.success, 'Success');
-                    }
+                // Relation exist
+                //var relation = relationExist(
+                //    [
+                //        {collection: Sample.Collection.Book, selector: {testId: this._id}}
+                //    ]
+                //);
 
-                });
+                //if (!relation) {
+                    Sample.Collection.Test.remove(id, function (error) {
+                        if (error) {
+                            toastr.error(error.message, 'Error');
+                        } else {
+                            toastr.success(App.Message.success, 'Success');
+                        }
+
+                    });
+                //}
             }
         });
     },

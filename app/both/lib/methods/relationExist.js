@@ -3,8 +3,8 @@
  */
 relationExist = function (param) {
     //var param = [
-    //    {collection: 'collection', selector: 'selector'},
-    //    {collection: 'collection', selector: 'selector'}
+    //    {collection: collectionObject, selector: {selector}},
+    //    {collection: collectionObject, selector: {selector}}
     //];
     var param = typeof param == 'object' ? param : [];
     var exist = false;

@@ -1,0 +1,53 @@
+# Meteor packages used by this project, one per line.
+# Check this file (and the other files in this directory) into your repository.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+meteor-platform
+jquery
+underscore
+underscorestring:underscore.string
+coffeescript
+markdown
+twbs:bootstrap
+fortawesome:fontawesome
+accounts-password
+ian:accounts-ui-bootstrap-3
+iron:router
+monbro:iron-router-breadcrumb
+zimme:iron-router-active
+multiply:iron-router-progress
+sacha:spin
+francocatena:status
+manuelschoebel:ms-seo
+aldeed:collection2
+dburles:collection-helpers
+aldeed:simple-schema
+aldeed:autoform
+natestrauser:select2
+zimme:select2-bootstrap3-css
+aldeed:autoform-select2
+momentjs:moment
+tsega:bootstrap3-datetimepicker
+aldeed:autoform-bs-datetimepicker
+aldeed:tabular
+mizzao:bootboxjs
+gfk:notifications
+u2622:persistent-session
+ongoworks:security
+alanning:roles
+meteorhacks:fast-render
+reywood:publish-composite
+meteorhacks:subs-manager
+dburles:spacebars-tohtml
+raix:handlebar-helpers
+netanelgilad:excel
+pcel:accounting
+bigdsk:inputmask
+maazalik:highcharts
+manuelschoebel:wait-on-lib
+hitchcott:app-dump
+risul:chance
+chrismbeckett:toastr
+simple:reactive-method

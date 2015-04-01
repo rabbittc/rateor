@@ -1,0 +1,59 @@
+<!--Form-->
+<template name="sample_myReportName_rpt">
+    {{#autoForm schema=Sample.Schema.MyReport id="sample_myReportName_rpt" action="gen" target="_blank"}}
+        <div class="row">
+            <div class="col-md-6">
+                {{> afQuickField name='name'}}
+            </div>
+            <div class="col-md-6">
+                {{> afQuickField name='date'}}
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Generate</button>
+        <button type="reset" class="btn btn-default">Reset</button>
+    {{/autoForm}}
+</template>
+
+<!--Content-->
+<template name="sample_myReportName_rptContent">
+    <table class="report-content">
+        <thead class="report-content-header">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Address</th>
+            <th>Telephone</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+
+        <tbody class="report-content-body">
+        {{#each this}}
+            <tr>
+                <td>{{_id}}</td>
+                <td>{{name}}</td>
+                <td>{{gender}}</td>
+                <td>{{address}}</td>
+                <td>{{telephone}}</td>
+                <td>{{email}}</td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</template>
+
+<!--Header-->
+<template name="sample_myReportName_rptHeader">
+    {{#each this}}
+        <div class="row">
+            <div class="col-md-4">{{col1}}</div>
+            <div class="col-md-4">{{col2}}</div>
+            <div class="col-md-4">{{col3}}</div>
+        </div>
+    {{/each}}
+</template>
+
+<!--Footer-->
+<template name="sample_myReportName_rptFooter">
+</template>

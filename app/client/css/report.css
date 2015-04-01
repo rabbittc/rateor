@@ -1,0 +1,74 @@
+/* Report styles
+-------------------------------------------------- */
+.report-body {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 10px;
+    color: #000000
+}
+/* A4 */
+.report-a4-portrait {
+    margin: 0px auto;
+    width: 720px;
+    padding: 0px;
+}
+
+.report-a4-landscape {
+    margin: 0px auto;
+    width: 1020px;
+    padding: 0px;
+}
+
+/* A5 */
+.report-a5-portrait {
+    margin: 0px auto;
+    width: 510px;
+    padding: 0px;
+}
+
+.report-a5-landscape {
+    margin: 0px auto;
+    width: 720px;
+    padding: 0px;
+}
+
+.report-title {
+    text-align: center;
+    font-size: 11px;
+    font-weight: bold;
+    border-bottom: 1px solid #000000;
+}
+
+.report-sign {
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+}
+
+.report-company-name {
+    font-size: 14px;
+}
+
+.report-content {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #000000;
+}
+
+.report-content-header th {
+    background-color: #d0d2d0;
+    padding: 3px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #555555;
+}
+
+.report-content-body td {
+    padding: 3px;
+    border: 1px solid #555555;
+}
+
+.report-page-header-footer {
+    border-collapse: collapse;
+    width: 100%;
+    padding: 5px;
+}

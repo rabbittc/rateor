@@ -1,0 +1,81 @@
+<head>
+    <link rel="icon" href="favicon.ico">
+    <title>Rabbit Project</title>
+</head>
+
+<template name="layout">
+    <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{pathFor 'app.welcome'}}">
+                    <!--<img style="display: inline" alt="Brand" width="20" height="20" src="/rabbit.png">-->
+                    {{appName}}
+                </a>
+            </div>
+
+            <!-- header -->
+            {{> layoutHeader}}
+            <!-- /header -->
+
+        </div>
+    </nav>
+
+    <!-- Begin page content -->
+    <div class="container">
+
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <!--<div class="jumbotron">-->
+        <!--<h1>Theme example</h1>-->
+        <!--<p>This is a template showcasing the optional theme stylesheet included in Bootstrap. Use it as a starting point to create something more unique by building on or modifying it.</p>-->
+        <!--</div>-->
+
+        {{> notifications}}
+        {{> status}}
+
+        {{#unless notFound}}
+            <!--{{> breadcrumb}}-->
+            <!--<ol class="breadcrumb">-->
+                <!--{{#each Breadcrumb}}-->
+            <!--<li class="{{cssClasses}}"><a href="{{url}}">{{title}}</a></li>-->
+                <!--{{/each}}-->
+
+            <!--&lt;!&ndash;User group and branch&ndash;&gt;-->
+            <!--<span id="clock" class="pull-right"><i class="fa fa-calendar-o"></i> ...</span>-->
+            <!--</ol>-->
+
+            <div class="page-header">
+                <h3>
+                    <i class="fa fa-{{pageHeader.icon}}"></i>
+                    {{pageHeader.title}}
+                    <small>{{pageHeader.sub}}</small>
+
+                    <ol class="breadcrumb pull-right" style="font-size: 12px">
+                        {{#each Breadcrumb}}
+                            <li class="{{cssClasses}}"><a href="{{url}}">{{title}}</a></li>
+                        {{/each}}
+                    </ol>
+                </h3>
+            </div>
+        {{/unless}}
+
+        {{> yield}}
+
+    </div>
+    <!-- /container -->
+
+    <!-- footer -->
+    {{> layoutFooter}}
+    <!-- /footer -->
+
+    </body>
+</template>

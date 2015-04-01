@@ -1,0 +1,126 @@
+<!--Index-->
+<template name="app_user">
+    <p>
+        <button type="button" class="btn btn-primary insert">Add New</button>
+    </p>
+
+    {{> tabular table=App.TabularTable.User class="table table-striped table-bordered table-condensed table-hover"}}
+</template>
+
+<!--Action-->
+<template name="app_userAction">
+    {{#tabularAction}}
+        <li><a href="#" class="update"><i class="fa fa-pencil"></i> Update</a></li>
+        <li><a href="#" class="remove"><i class="fa fa-remove"></i> Remove</a></li>
+        <li><a href="#" class="show"><i class="fa fa-eye"></i> Show</a></li>
+    {{/tabularAction}}
+</template>
+
+<!--Insert-->
+<template name="app_userInsert">
+
+    <div class="modal fade" data-backdrop="static" id="app_userInsertModal">
+        <div class="modal-dialog  modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">User Insert</h4>
+                </div>
+
+                {{#autoForm schema=App.Schema.User id="app_userInsert"}}
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                {{> afQuickField name='username'}}
+                                {{> afQuickField name='email'}}
+                                {{> afQuickField name='password' type="password"}}
+                                {{> afQuickField name='confirmPassword' type="password"}}
+                                {{> afQuickField name='profile.fullName'}}
+                            </div>
+                            <div class="col-xs-6">
+                                {{> afQuickField name='role' size=8}}
+                                {{> afQuickField name='profile.branch' size=7}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="reset" class="btn btn-default">Reset</button>
+                    </div>
+                {{/autoForm}}
+
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+</template>
+
+<!--Update-->
+<template name="app_userUpdate">
+
+    <div class="modal fade" data-backdrop="static" id="app_userUpdateModal">
+        <div class="modal-dialog  modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">User Update</h4>
+                </div>
+
+                {{#autoForm schema=App.Schema.User id="app_userUpdate" doc=this}}
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                {{> afQuickField name='username'}}
+                                {{> afQuickField name='email'}}
+                                {{> afQuickField name='password' type="password"}}
+                                {{> afQuickField name='confirmPassword' type="password"}}
+                                {{> afQuickField name='profile.fullName'}}
+                            </div>
+                            <div class="col-xs-6">
+                                {{> afQuickField name='role' size=8}}
+                                {{> afQuickField name='profile.branch' size=7}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="reset" class="btn btn-default">Reset</button>
+                    </div>
+                {{/autoForm}}
+
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+</template>
+
+<!--Show-->
+<template name="app_userShow">
+    <dl class="dl-horizontal">
+        <dt>Id</dt>
+        <dd>{{_id}}</dd>
+        <dt>Username</dt>
+        <dd>{{username}}</dd>
+        <dt>Email</dt>
+        {{#each emails}}
+            <dd>{{address}}</dd>
+        {{/each}}
+        <dt>Full Name</dt>
+        <dd>{{profile.fullName}}</dd>
+        <dt>Branch</dt>
+        <dd>{{profile.branch}}</dd>
+        <dt>Group</dt>
+        <dd>{{roles}}</dd>
+    </dl>
+</template>
+

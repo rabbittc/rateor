@@ -1,0 +1,46 @@
+<head>
+    <link rel="icon" href="rabbit.png">
+    <title>Rabbit Report</title>
+</head>
+
+<template name="layoutReport">
+    <body class="report-body">
+    <div class="report-{{pageSetup.size}}-{{pageSetup.orientation}}">
+
+        <!--Title-->
+        <div class="report-title">
+            <span class="report-company-name">{{company.enName}}</span><br>
+            Branch Office: {{reportTitle.branchOffice}}<br>
+            {{reportTitle.reportName}}<br>
+            Date: {{reportTitle.date}}<br>
+        </div>
+        <!--/Title-->
+
+        <!--Header-->
+        {{> yield "layoutReportHeader"}}
+
+        <!--Content-->
+        {{> yield}}
+
+        <!--Footer-->
+        {{> yield "layoutReportFooter"}}
+
+        <!--Sign-->
+        <p>
+            <div class="row" align="center">
+                <div class="col-md-6">
+                    Approved By<br><br><br><br><br><br><br>
+                    __________________<br>
+                </div>
+                <div class="col-md-6">
+                    Prepared By<br><br><br><br><br><br><br>
+                    __________________<br>
+                </div>
+            </div>
+        </p>
+        <!--/Sign-->
+
+    </div>
+    </body>
+</template>
+

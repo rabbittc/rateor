@@ -18,7 +18,6 @@ iron:router
 monbro:iron-router-breadcrumb
 zimme:iron-router-active
 multiply:iron-router-progress
-sacha:spin
 francocatena:status
 manuelschoebel:ms-seo
 aldeed:collection2
@@ -29,11 +28,15 @@ natestrauser:select2
 zimme:select2-bootstrap3-css
 aldeed:autoform-select2
 momentjs:moment
+rajit:bootstrap3-datepicker
+aldeed:autoform-bs-datepicker
 tsega:bootstrap3-datetimepicker
 aldeed:autoform-bs-datetimepicker
 aldeed:tabular
 mizzao:bootboxjs
+ovcharik:alertifyjs
 gfk:notifications
+chrismbeckett:toastr
 u2622:persistent-session
 ongoworks:security
 alanning:roles
@@ -49,5 +52,7 @@ maazalik:highcharts
 manuelschoebel:wait-on-lib
 hitchcott:app-dump
 risul:chance
-chrismbeckett:toastr
 simple:reactive-method
+softwarerero:accounts-t9n
+comerc:lang
+loftsteinn:bootstrap3-daterangepicker

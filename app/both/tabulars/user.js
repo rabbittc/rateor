@@ -1,5 +1,5 @@
 App.TabularTable.User = new Tabular.Table({
-    name: "app_userList",
+    name: "appUserList",
     collection: Meteor.users,
     selector: function (userId) {
         return {username: {$ne: 'super'}}

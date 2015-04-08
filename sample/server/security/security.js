@@ -1,6 +1,13 @@
 /**
- * Test
+ * Customer
  */
-Sample.Collection.Test.permit(['insert', 'update', 'remove'])
-    .sample_ifGeneral()
+Sample.Collection.Customer.permit(['insert', 'update', 'remove'])
+    .sampleIfGeneral()
+    .apply();
+
+/**
+ * Address
+ */
+Sample.Collection.Address.permit(['insert', 'update', 'remove'])
+    .sampleIfGeneral()
     .apply();

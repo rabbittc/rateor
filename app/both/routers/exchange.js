@@ -4,10 +4,8 @@ Router.route('app/exchange', function () {
 
 }, {
     name: 'app.exchange',
-    title: 'exchange',
-    parent: 'app.home',
-    pageHeader: {title: 'exchange', icon: 'exchange'},
+    header: {title: 'exchange', icon: 'exchange'},
     waitOn: function () {
-        return Meteor.subscribe('app_exchange');
+        return Meteor.subscribe('appExchange');
     }
 });

@@ -1,7 +1,7 @@
 /*
  User
  */
-Meteor.publish('app_user', function () {
+Meteor.publish('appUser', function () {
     return Meteor.users.find();
 });
 
@@ -15,7 +15,7 @@ Meteor.publish(null, function () {
 /*
  Company
  */
-Meteor.publish('app_company', function () {
+Meteor.publish('appCompany', function () {
     if (this.userId) {
         return App.Collection.Company.find();
     }
@@ -24,7 +24,7 @@ Meteor.publish('app_company', function () {
 /*
  Branch
  */
-Meteor.publish('app_branch', function () {
+Meteor.publish('appBranch', function () {
     if (this.userId) {
         return App.Collection.Branch.find();
     }
@@ -32,13 +32,13 @@ Meteor.publish('app_branch', function () {
 /*
  Currency
  */
-Meteor.publish('app_currency', function () {
+Meteor.publish('appCurrency', function () {
     if (this.userId) {
         return App.Collection.Currency.find();
     }
 });
 /* Exchange */
-Meteor.publish('app_exchange', function () {
+Meteor.publish('appExchange', function () {
     if (this.userId) {
         return App.Collection.Exchange.find();
     }

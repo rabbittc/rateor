@@ -1,5 +1,5 @@
 App.TabularTable.Branch = new Tabular.Table({
-    name: "app_branchList",
+    name: "appBranchList",
     collection: App.Collection.Branch,
     columns: [
         {data: "_id", title: "ID"},

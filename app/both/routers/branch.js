@@ -4,10 +4,8 @@ Router.route('app/branch', function () {
 
 }, {
     name: 'app.branch',
-    title: 'branch',
-    parent: 'app.home',
-    pageHeader: {title: 'branch', sub: '', icon: 'sitemap'},
+    header: {title: 'branch', sub: '', icon: 'sitemap'},
     waitOn: function () {
-        return Meteor.subscribe('app_branch');
+        return Meteor.subscribe('appBranch');
     }
 });

@@ -14,7 +14,7 @@ App.Schema.WelcomeConfig = new SimpleSchema({
     },
     branch: {
         type: String,
-        label: 'Branch',
+        label: "Branch",
         autoform: {
             type: "select2",
             options: function () {

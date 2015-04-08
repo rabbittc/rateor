@@ -6,10 +6,6 @@
             {{> Template.dynamic template=navbar.template}}
         {{/if}}
 
-        <!--<form class="navbar-form navbar-right" role="search">-->
-            <!--{{> i18n_dropdown}}-->
-        <!--</form>-->
-
         <ul class="nav navbar-nav navbar-right">
             {{#if currentBranch.show}}
                 <li><a href="{{pathFor 'app.welcome'}}"><i class="fa fa-sitemap"></i> {{currentBranch.title}}

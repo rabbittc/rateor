@@ -1,7 +1,7 @@
 /* Report styles
 -------------------------------------------------- */
 .report-body {
-    font-family: Verdana, Geneva, sans-serif;
+    font-family: Arial, Verdana, Geneva, sans-serif;
     font-size: 10px;
     color: #000000
 }
@@ -28,6 +28,19 @@
 .report-a5-landscape {
     margin: 0px auto;
     width: 720px;
+    padding: 0px;
+}
+
+/* Mini */
+.report-mini-portrait {
+    margin: 0px auto;
+    width: 260px;
+    padding: 0px;
+}
+
+.report-mini-landscape {
+    margin: 0px auto;
+    width: 260px;
     padding: 0px;
 }
 

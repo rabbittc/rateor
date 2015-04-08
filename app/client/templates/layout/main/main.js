@@ -10,13 +10,13 @@ Template.layout.helpers({
     notFound: function () {
         return Session.get('notFound');
     },
-    pageHeader: function () {
-        var pageHeader = Router.current().route.options.pageHeader;
+    header: function () {
+        var header = Router.current().route.options.header;
 
         return {
-            title: s.humanize(pageHeader.title),
-            sub: s.humanize(pageHeader.sub),
-            icon: pageHeader.icon
+            title: s.humanize(header.title),
+            sub: s.humanize(header.sub),
+            icon: header.icon
         };
     }
 });
@@ -30,7 +30,7 @@ Template.layoutHeader.onRendered(function () {
  */
 function serverClock() {
     Meteor.call('clock', function (error, result) {
-        $('#clock').html('<i class="fa fa-calendar-o"></i> ' + moment(result, 'YYYY-MM-DD H:mm:ss').format('ddd D, MMM YYYY H:mm:ss'));
+        $('#clock').html('<i class="fa fa-calendar"></i> ' + moment(result, 'YYYY-MM-DD H:mm:ss').format('ddd D, MMM YYYY H:mm:ss'));
     });
 }
 

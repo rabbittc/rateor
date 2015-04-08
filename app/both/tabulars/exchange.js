@@ -1,5 +1,5 @@
 App.TabularTable.Exchange = new Tabular.Table({
-    name: "app_exchangeList",
+    name: "appExchangeList",
     collection: App.Collection.Exchange,
     columns: [
         {data: "exDateTime", title: "Exchange Date"},

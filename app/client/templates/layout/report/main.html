@@ -7,37 +7,24 @@
     <body class="report-body">
     <div class="report-{{pageSetup.size}}-{{pageSetup.orientation}}">
 
-        <!--Title-->
-        <div class="report-title">
-            <span class="report-company-name">{{company.enName}}</span><br>
-            Branch Office: {{reportTitle.branchOffice}}<br>
-            {{reportTitle.reportName}}<br>
-            Date: {{reportTitle.date}}<br>
-        </div>
-        <!--/Title-->
-
-        <!--Header-->
-        {{> yield "layoutReportHeader"}}
-
-        <!--Content-->
         {{> yield}}
 
-        <!--Footer-->
-        {{> yield "layoutReportFooter"}}
-
         <!--Sign-->
-        <p>
-            <div class="row" align="center">
-                <div class="col-md-6">
-                    Approved By<br><br><br><br><br><br><br>
-                    __________________<br>
-                </div>
-                <div class="col-md-6">
-                    Prepared By<br><br><br><br><br><br><br>
-                    __________________<br>
-                </div>
-            </div>
-        </p>
+        {{#if sign}}
+            <p>
+            <table width="100%" border="0" style="text-align: center">
+                <tr>
+                    <td width="50%">
+                        Approved By<br><br><br><br><br><br><br>
+                        __________________<br>
+                    </td>
+                    <td>Prepared By<br><br><br><br><br><br><br>
+                        __________________<br></td>
+                </tr>
+
+            </table>
+            </p>
+        {{/if}}
         <!--/Sign-->
 
     </div>

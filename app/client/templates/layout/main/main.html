@@ -33,37 +33,25 @@
     <!-- Begin page content -->
     <div class="container">
 
-        <!-- Main jumbotron for a primary marketing message or call to action -->
-        <!--<div class="jumbotron">-->
-        <!--<h1>Theme example</h1>-->
-        <!--<p>This is a template showcasing the optional theme stylesheet included in Bootstrap. Use it as a starting point to create something more unique by building on or modifying it.</p>-->
-        <!--</div>-->
-
         {{> notifications}}
         {{> status}}
 
         {{#unless notFound}}
-            <!--{{> breadcrumb}}-->
-            <!--<ol class="breadcrumb">-->
-                <!--{{#each Breadcrumb}}-->
-            <!--<li class="{{cssClasses}}"><a href="{{url}}">{{title}}</a></li>-->
-                <!--{{/each}}-->
-
-            <!--&lt;!&ndash;User group and branch&ndash;&gt;-->
-            <!--<span id="clock" class="pull-right"><i class="fa fa-calendar-o"></i> ...</span>-->
-            <!--</ol>-->
-
             <div class="page-header">
                 <h3>
-                    <i class="fa fa-{{pageHeader.icon}}"></i>
-                    {{pageHeader.title}}
-                    <small>{{pageHeader.sub}}</small>
+                    <i class="fa fa-{{header.icon}}"></i>
+                    {{header.title}}
+                    <small>{{header.sub}}</small>
 
-                    <ol class="breadcrumb pull-right" style="font-size: 12px">
-                        {{#each Breadcrumb}}
-                            <li class="{{cssClasses}}"><a href="{{url}}">{{title}}</a></li>
-                        {{/each}}
-                    </ol>
+                    <span id="clock" class="pull-right" style="font-size: 12px; padding: 10px 0px; margin-bottom: 0px">
+                        <i class="fa fa-calendar"></i> ...
+                    </span>
+
+                    <!--<ol class="breadcrumb pull-right" style="font-size: 12px">-->
+                        <!--{{#each Breadcrumb}}-->
+                    <!--<li class="{{cssClasses}}"><a href="{{url}}">{{title}}</a></li>-->
+                        <!--{{/each}}-->
+                    <!--</ol>-->
                 </h3>
             </div>
         {{/unless}}

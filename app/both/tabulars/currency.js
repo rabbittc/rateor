@@ -1,5 +1,5 @@
 App.TabularTable.Currency = new Tabular.Table({
-    name: "app_currencyList",
+    name: "appCurrencyList",
     collection: App.Collection.Currency,
     columns: [
         {data: "_id", title: "ID"},

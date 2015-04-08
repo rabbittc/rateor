@@ -28,7 +28,7 @@ body {
 /* Not required for template or sticky footer method. */
 
 body > .container {
-    padding: 60px 15px 0;
+    padding: 55px 15px 0;
 }
 
 .container .text-muted {
@@ -98,23 +98,10 @@ code {
 /* iron-router-progress
 -----------------------*/
 #iron-router-progress {
-    background-color: #ffffff;
-    box-shadow: 0 0 5px #d43023;
+    background-color: #337ab7;
+    box-shadow: 0 0 5px #2e6da4;
 }
 
 #iron-router-progress.spinner:before {
-    border-color: #ffffff;
+    border-color: #2e6da4;
 }
-
-/* i18n dropdown
------------------------*/
-/*.tap-i18n-dropdown select {*/
-    /*height: 30px;*/
-    /*line-height: 30px;*/
-
-    /*margin-top: 3px;*/
-    /*padding: 5px 10px;*/
-    /*font-size: 12px;*/
-    /*line-height: 1.5;*/
-    /*border-radius: 3px;*/
-/*}*/

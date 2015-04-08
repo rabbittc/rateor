@@ -4,10 +4,8 @@ Router.route('app/user', function () {
 
 }, {
     name: 'app.user',
-    title: 'user',
-    parent: 'app.home',
-    pageHeader: {title: 'user', sub: '', icon: 'users'},
+    header: {title: 'user', sub: '', icon: 'users'},
     waitOn: function () {
-        return Meteor.subscribe('app_user');
+        return Meteor.subscribe('appUser');
     }
 });

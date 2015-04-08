@@ -1,8 +1,17 @@
-/*
- Test
+/**
+ * Customer
  */
-Meteor.publish('sample_test', function () {
+Meteor.publish('sampleCustomer', function () {
     if (this.userId) {
-        return Sample.Collection.Test.find();
+        return Sample.Collection.Customer.find();
+    }
+});
+
+/**
+ * Address
+ */
+Meteor.publish('sampleAddress', function () {
+    if (this.userId) {
+        return Sample.Collection.Address.find();
     }
 });

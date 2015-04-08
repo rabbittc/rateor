@@ -1,0 +1,128 @@
+<!--Index-->
+<template name="sample_customer">
+    <p>
+        <button type="button" class="btn btn-primary insert">Add New</button>
+    </p>
+
+    {{> tabular table=Sample.TabularTable.Customer class="table table-striped table-bordered table-condensed table-hover"}}
+</template>
+
+<!--Action-->
+<template name="sample_customerAction">
+    {{#tabularAction}}
+        <li><a href="#" class="update"><i class="fa fa-pencil"></i> Update</a></li>
+        <li><a href="#" class="remove"><i class="fa fa-remove"></i> Remove</a></li>
+        <li><a href="#" class="show"><i class="fa fa-eye"></i> Show</a></li>
+    {{/tabularAction}}
+</template>
+
+<!--Insert-->
+<template name="sample_customerInsert">
+    {{#autoForm collection=Sample.Collection.Customer id="sample_customerInsert" type="insert"}}
+        <div class="row">
+            <div class="col-md-6">
+                {{> afQuickField name='name'}}
+                {{> afQuickField name='gender'}}
+                {{> afQuickField name='dob'}}
+            </div>
+            <div class="col-md-6">
+
+                <div class="form-group{{#if afFieldIsInvalid name='address'}} has-error{{/if}}">
+                    <label class="control-label" for="address">Address</label>
+
+                    <div class="input-group select2-bootstrap-append">
+                        {{> afFieldInput name='address'}}
+                        <span class="input-group-addon">
+                            <a href="#" class="addressInsertAddon">
+                                <i class="fa fa-plus"></i>
+                            </a>
+                        </span>
+                    </div>
+                    {{#if afFieldIsInvalid name='address'}}
+                        <span class="help-block">{{afFieldMessage name='address'}}</span>
+                    {{/if}}
+                </div>
+
+                {{> afQuickField name='telephone'}}
+                {{> afQuickField name='email'}}
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="reset" class="btn btn-default">Reset</button>
+    {{/autoForm}}
+</template>
+
+<!--Insert address addon-->
+<template name="sample_addressInsertAddon">
+    {{#autoForm collection=Sample.Collection.Address id="sample_addressInsertAddon" type="insert"}}
+
+        <div class="row">
+            <div class="col-md-12">
+                {{> afQuickField name='name'}}
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+
+    {{/autoForm}}
+</template>
+
+<!--Update-->
+<template name="sample_customerUpdate">
+
+    {{#autoForm collection=Sample.Collection.Customer id="sample_customerUpdate" doc=this type="update"}}
+        <div class="row">
+            <div class="col-md-6">
+                {{> afQuickField name='name'}}
+                {{> afQuickField name='gender'}}
+                {{> afQuickField name='dob'}}
+            </div>
+            <div class="col-md-6">
+
+                <div class="form-group{{#if afFieldIsInvalid name='address'}} has-error{{/if}}">
+                    <label class="control-label" for="address">Address</label>
+
+                    <div class="input-group  select2-bootstrap-append">
+                        {{> afFieldInput name='address'}}
+                        <span class="input-group-addon">
+                            <a href="#" class="addressInsertAddon">
+                                <i class="fa fa-plus"></i>
+                            </a>
+                        </span>
+                    </div>
+                    {{#if afFieldIsInvalid name='address'}}
+                        <span class="help-block">{{afFieldMessage name='address'}}</span>
+                    {{/if}}
+                </div>
+
+                {{> afQuickField name='telephone'}}
+                {{> afQuickField name='email'}}
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="reset" class="btn btn-default">Reset</button>
+    {{/autoForm}}
+
+</template>
+
+<!--Show-->
+<template name="sample_customerShow">
+    <dl class="dl-horizontal">
+        <dt>Id</dt>
+        <dd>{{_id}}</dd>
+        <dt>Name</dt>
+        <dd>{{name}}</dd>
+        <dt>Gender</dt>
+        <dd>{{gender}}</dd>
+        <dt>Date of Birth</dt>
+        <dd>{{dob}}</dd>
+        <dt>Address</dt>
+        <dd>{{address}}</dd>
+        <dt>Telephone</dt>
+        <dd>{{telephone}}</dd>
+        <dt>Email</dt>
+        <dd>{{email}}</dd>
+    </dl>
+</template>

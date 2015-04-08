@@ -17,14 +17,15 @@
     <div class="jumbotron">
         <h2>
             <img style="display: inline-block" alt="Rabbit" width="40" height="40" src="/rabbit.png">
-            Rabbit Training Center
+            <!--Rabbit Training Center-->
+            {{t9n "app.center.name"}}
         </h2>
         <br>
 
         <div class="row jumbotron-body">
             <div class="col-md-6">
                 <ul style="list-style-type:square">
-                    <li>Computer Training</li>
+                    <li>{{t9n "app.center.pro.ct"}}</li>
                     <li>Application Development</li>
                     <li>Web Design</li>
                     <li>IT Consultancy</li>
@@ -66,6 +67,6 @@
                 {{> afQuickField name="branch"}}
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">Go ...</button>
+        <button type="submit" class="btn btn-primary">Go . . .</button>
     {{/autoForm}}
 </template>

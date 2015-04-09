@@ -105,3 +105,10 @@ code {
 #iron-router-progress.spinner:before {
     border-color: #2e6da4;
 }
+
+/* Add asterisk (*) after the label for required fields
+-----------------------*/
+[data-required] label:after {
+    content: '*';
+    color: red;
+}

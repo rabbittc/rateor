@@ -1,10 +1,8 @@
-# Rateor 0.0.3
+# Rateor 0.0.4
 Meteor boilerplate for Rabbit Training Center.
 
 ### Usage
 - Copy the sample module and rename
-
-    Ex: rabbit
 
         // Structure
         |_rabbit
@@ -58,8 +56,6 @@ Meteor boilerplate for Rabbit Training Center.
                     startup.js
 - Config new module and set roles in `app/both/lib/config/module.js`
 
-    Ex:
-
         .....
         .....
         // Rabbit
@@ -75,8 +71,6 @@ Meteor boilerplate for Rabbit Training Center.
             ]
         };
 - Config namespace in `rabbit/both/lib/config/namespace.js` to use collection, schema, tabular and other libraries
-
-    Ex:
 
         /**
          * Namespace
@@ -94,8 +88,6 @@ Meteor boilerplate for Rabbit Training Center.
         /* Tabular */
         Rabbit.TabularTable = {};
 - Create security method in `rabbit/server/security.js`
-
-    Ex:
 
         /**
          * Admin
@@ -133,8 +125,6 @@ Meteor boilerplate for Rabbit Training Center.
 - Config menu bar in `rabbit/client/templates/layout/navbar.html`
 - Create list view of select options in `rabbit/both/lib/methods/list.js`
 
-    Ex:
-
         /**
          * List
          */
@@ -162,31 +152,23 @@ Meteor boilerplate for Rabbit Training Center.
 ### Internal methods
 - IDGenerator in `app/both/lib/methods`
 
-    Ex:
-
         var id = IDGenertor.gen(collection, field, length);
         var id = IDGenertor.genWithPrefix(collection, field, prefix, length);
 - Relation Exist in `rabbit/both/lib/methods`
 
-    Ex:
-
         var relation = relationExist(
             [
-                {collection: collectionObject, selector: {selector: value}},
-                {collection: collectionObject, selector: {selector: value}}
+                {collection: App.Collection.Test, selector: {_id: "001"}},
+                {collection: App.Collection.Test2, selector: {_id: "002"}}
             ]
-        )
+        );// return boolean
 - DateTimePicker in `rabbit/client/lib/methods`
-
-    Ex:
 
         Template.templateName.onRendered(function(){
             var name = $('[name="date"]');
             DateTimePicker.date(name);
         })
 - Render Template in `rabbit/client/lib/methods`
-
-    Ex:
 
         // Use with bootbox
         var data = {name: value, gender: value};
@@ -196,8 +178,6 @@ Meteor boilerplate for Rabbit Training Center.
                 });
 
 - Modal Template in `rabbit/client/lib/methods`
-
-    Ex:
 
         // Template
         <template name="sample_testInsert">
@@ -249,8 +229,6 @@ Meteor boilerplate for Rabbit Training Center.
 
 - Modal Max Height in `rabbit/client/lib/methods`
 
-    Ex:
-
         // Use with bootbox
         'click .show': function (e, t) {
             bootbox.dialog({
@@ -260,8 +238,6 @@ Meteor boilerplate for Rabbit Training Center.
             modalMaxHeight();
         }
 - Alertify
-
-    Ex:
 
         // How to use custom
         createCustomAlert(["customer", "addressAddon"]);
@@ -279,7 +255,6 @@ Meteor boilerplate for Rabbit Training Center.
         var $customers = $(alertify.customCustomer().elements.content);
         alert($customers.find("#name"));
 
-
 ### Note
 - Router name: `rabbit.routerName`, Url `rabbit/routerName`
 - Router name for report: rabbit.routerName`Report`, Url: rabbit/routerName`Report` and rabbit/routerName`ReportGen`
@@ -291,6 +266,9 @@ Meteor boilerplate for Rabbit Training Center.
 - Session: `currentModule` and `currentBranch`
 
 ### Changelog
+- v 0.0.4 (2014-04-09)
+    - fix `relationExist` method support to object/array element
+    - update readme
 - v 0.0.3 (2014-04-08)
     - add daterangepicker
 - v 0.0.2 (2014-04-07)

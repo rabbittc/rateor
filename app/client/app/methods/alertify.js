@@ -3,9 +3,10 @@
  */
 createCustomAlert = function (names) {
 
-    var alerts = typeof names !== "object" ? [names] : names;
+    var alerts = _.isArray(names) ? names : [names];
 
     _.each(alerts, function (element) {
+
         var name = 'custom' + s.classify(element);
 
         if (!alertify[name]) {
@@ -27,6 +28,7 @@ createCustomAlert = function (names) {
                 };
             }, false, 'alert');
         }
+
     });
 
 };

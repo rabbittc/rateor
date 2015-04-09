@@ -1,14 +1,16 @@
 /**
  * Check relation
  */
-relationExist = function (param) {
-    //var param = [
-    //    {collection: collectionObject, selector: {selector}},
-    //    {collection: collectionObject, selector: {selector}}
+relationExist = function (objects) {
+
+    //var objects = [
+    //    {collection: App.Collection.Test, selector: {_id: "001"}},
+    //    {collection: App.Collection.Test2, selector: {_id: "002"}}
     //];
-    var param = typeof param == 'object' ? param : [];
+    var getObjects = _.isArray(objects) ? objects : [];
+
     var exist = false;
-    param.forEach(function (obj) {
+    getObjects.forEach(function (obj) {
         var getRelation = obj.collection.findOne(obj.selector);
         if (getRelation != null) {
             exist = true;
@@ -17,4 +19,5 @@ relationExist = function (param) {
     });
 
     return exist;
+
 };

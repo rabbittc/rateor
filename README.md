@@ -1,4 +1,4 @@
-# Rateor 0.0.4
+# Rateor 0.0.5
 Meteor boilerplate for Rabbit Training Center.
 
 ### Usage
@@ -266,6 +266,8 @@ Meteor boilerplate for Rabbit Training Center.
 - Session: `currentModule` and `currentBranch`
 
 ### Changelog
+- v 0.0.5 (2014-04-09)
+    - fix user validation
 - v 0.0.4 (2014-04-09)
     - fix `relationExist` method support to object/array element
     - update readme

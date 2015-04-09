@@ -1,36 +1,51 @@
 /**
- * List
+ * Create new custom  alertify
+ */
+createCustomAlert("exchange");
+
+/**
+ * Index
  */
 Template.app_exchange.events({
     'click .insert': function (e, t) {
-        ModalTemplate.show('app_exchangeInsert');
+        alertify.customExchange(renderTemplate(Template.app_exchangeInsert))
+            .set({
+                title: "<i class='fa fa-plus'></i> Exchange"
+            })
+            .maximize();
     },
     'click .update': function (e, t) {
         var data = App.Collection.Exchange.findOne(this._id);
 
-        ModalTemplate.show('app_exchangeUpdate', data);
+        alertify.customExchange(renderTemplate(Template.app_exchangeUpdate, data))
+            .set({
+                title: '<i class="fa fa-pencil"> Exchange'
+            })
+            .maximize();
     },
     'click .remove': function (e, t) {
         var id = this._id;
 
-        bootbox.confirm("Are you sure to delete [" + id + "]?", function (result) {
-            if (result) {
-                App.Collection.Exchange.remove(id, function (error) {
-                    if (error) {
-                        toastr.error(error.message, 'Error');
-                    } else {
-                        toastr.success(App.Message.success, 'Success');
-                    }
+        alertify.confirm("Are you sure to delete [" + this.exDateTime + "]?")
+            .set({
+                onok: function (closeEvent) {
 
-                });
-            }
-        });
+                    App.Collection.Exchange.remove(id, function (error) {
+                        if (error) {
+                            alertify.error(error.message);
+                        } else {
+                            alertify.success("Success");
+                        }
+                    });
+                },
+                title: '<i class="fa fa-remove"></i> Exchange'
+            });
     },
     'click .show': function (e, t) {
-        bootbox.dialog({
-            message: renderTemplate(Template.app_exchangeShow, this),
-            title: "Exchange info"
-        });
+        alertify.alert(renderTemplate(Template.app_exchangeShow, this))
+            .set({
+                title: '<i class="fa fa-eye"></i> Exchange'
+            });
     }
 });
 
@@ -93,20 +108,19 @@ AutoForm.hooks({
             Session.set('fromCurrency', null);
             Session.set('toCurrency', null);
 
-            //$('#app_exchangeInsertModal').modal('hide');
-            toastr.success(App.Message.success, 'Success');
+            alertify.success('Success');
         },
         onError: function (formType, error) {
-            toastr.error(error.message, 'Error');
+            alertify.error(error.message);
         }
     },
     app_exchangeUpdate: {
         onSuccess: function (formType, error) {
-            $('#app_exchangeUpdateModal').modal('hide');
-            toastr.success(App.Message.success, 'Success');
+            alertify.customExchange().close();
+            alertify.success('Success');
         },
         onError: function (formType, error) {
-            toastr.error(error.message, 'Error');
+            alertify.error(error.message);
         }
     }
 });

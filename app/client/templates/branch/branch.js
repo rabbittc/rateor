@@ -1,35 +1,51 @@
 /**
+ * Create new custom  alertify
+ */
+createCustomAlert("branch");
+
+/**
  * Index
  */
 Template.app_branch.events({
     'click .insert': function (e, t) {
-        ModalTemplate.show('app_branchInsert');
+        alertify.customBranch(renderTemplate(Template.app_branchInsert))
+            .set({
+                title: "<i class='fa fa-plus'></i> Branch"
+            })
+            .maximize();
     },
     'click .update': function (e, t) {
         var data = App.Collection.Branch.findOne(this._id);
 
-        ModalTemplate.show('app_branchUpdate', data);
+        alertify.customBranch(renderTemplate(Template.app_branchUpdate, data))
+            .set({
+                title: '<i class="fa fa-pencil"> Branch'
+            })
+            .maximize();
     },
     'click .remove': function (e, t) {
         var id = this._id;
-        bootbox.confirm("Are you sure to delete [" + id + "]?", function (result) {
-            if (result) {
-                App.Collection.Branch.remove(id, function (error) {
-                    if (error) {
-                        toastr.error(error.message, 'Error');
-                    } else {
-                        toastr.success(App.Message.success, 'Success');
-                    }
 
-                });
-            }
-        });
+        alertify.confirm("Are you sure to delete [" + id + "]?")
+            .set({
+                onok: function (closeEvent) {
+
+                    App.Collection.Branch.remove(id, function (error) {
+                        if (error) {
+                            alertify.error(error.message);
+                        } else {
+                            alertify.success("Success");
+                        }
+                    });
+                },
+                title: '<i class="fa fa-remove"></i> Branch'
+            });
     },
     'click .show': function (e, t) {
-        bootbox.dialog({
-            message: renderTemplate(Template.app_branchShow, this),
-            title: "Branch Info"
-        });
+        alertify.alert(renderTemplate(Template.app_branchShow, this))
+            .set({
+                title: '<i class="fa fa-eye"></i> Branch'
+            });
     }
 });
 
@@ -45,20 +61,19 @@ AutoForm.hooks({
             }
         },
         onSuccess: function (formType, result) {
-            //$('#app_branchInsertModal').modal('hide');
-            toastr.success(App.Message.success, 'Success');
+            alertify.success('Success');
         },
         onError: function (formType, error) {
-            toastr.error(error.message, 'Error');
+            alertify.error(error.message);
         }
     },
     app_branchUpdate: {
         onSuccess: function (formType, result) {
-            $('#app_branchUpdateModal').modal('hide');
-            toastr.success(App.Message.success, 'Success');
+            alertify.customBranch().close();
+            alertify.success('Success');
         },
         onError: function (formType, error) {
-            toastr.error(error.message, 'Error');
+            alertify.error(error.message);
         }
     }
 });

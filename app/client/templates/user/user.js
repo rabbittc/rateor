@@ -1,9 +1,18 @@
 /**
- * List
+ * Create new custom  alertify
+ */
+createCustomAlert("user");
+
+/**
+ * Index
  */
 Template.app_user.events({
     'click .insert': function (e, t) {
-        ModalTemplate.show('app_userInsert');
+        alertify.customUser(renderTemplate(Template.app_userInsert))
+            .set({
+                title: "<i class='fa fa-plus'></i> User"
+            })
+            .maximize();
     },
     'click .update': function (e, t) {
         var id = this._id;
@@ -27,21 +36,29 @@ Template.app_user.events({
 
         data.role = roles;
 
-        ModalTemplate.show('app_userUpdate', data);
+        alertify.customUser(renderTemplate(Template.app_userUpdate, data))
+            .set({
+                title: '<i class="fa fa-pencil"> User'
+            })
+            .maximize();
     },
     'click .remove': function (e, t) {
         var id = this._id;
-        bootbox.confirm("Are you sure to delete [" + this.username + "]?", function (result) {
-            if (result) {
-                Meteor.call('userRemove', id, function (error, result) {
-                    if (error) {
-                        toastr.error(error.message, 'Error');
-                    } else {
-                        toastr.success(App.Message.success, 'Success');
-                    }
-                });
-            }
-        });
+
+        alertify.confirm("Are you sure to delete [" + this.username + "]?")
+            .set({
+                onok: function (closeEvent) {
+
+                    Meteor.call('userRemove', id, function (error, result) {
+                        if (error) {
+                            alertify.error(error.message);
+                        } else {
+                            alertify.success("Success");
+                        }
+                    });
+                },
+                title: '<i class="fa fa-remove"></i> Customer'
+            });
     },
     'click .show': function (e, t) {
 
@@ -66,12 +83,10 @@ Template.app_user.events({
             this.roles = "";
         }
 
-        //this.roles = Roles.getGroupsForUser(this._id).join(' | ');
-
-        bootbox.dialog({
-            message: renderTemplate(Template.app_userShow, this),
-            title: "User info"
-        });
+        alertify.alert(renderTemplate(Template.app_userShow, this))
+            .set({
+                title: '<i class="fa fa-eye"></i> User'
+            });
     }
 });
 
@@ -85,18 +100,17 @@ AutoForm.hooks({
 
             Meteor.call('userInsert', insertDoc, function (error, result) {
                 if (error) {
-                    toastr.error(error.message, 'Error');
+                    alertify.error(error.message);
                 }
             });
 
             this.done();
         },
         onSuccess: function (formType, error) {
-            //$('#app_userInsertModal').modal('hide');
-            toastr.success(App.Message.success, 'Success');
+            alertify.success('Success');
         },
         onError: function (formType, error) {
-            toastr.error(error.message, 'Error');
+            alertify.error(error.message);
         }
     },
     app_userUpdate: {
@@ -105,18 +119,18 @@ AutoForm.hooks({
 
             Meteor.call('userUpdate', currentDoc._id, insertDoc, function (error, result) {
                 if (error) {
-                    toastr.error(error.message, 'Error');
+                    alertify.error(error.message);
                 }
             });
 
             this.done();
         },
         onSuccess: function (formType, error) {
-            $('#app_userUpdateModal').modal('hide');
-            toastr.success(App.Message.success, 'Success');
+            alertify.customUser().close();
+            alertify.success('Success');
         },
         onError: function (formType, error) {
-            toastr.error(error.message, 'Error');
+            alertify.error(error.message);
         }
     }
 });

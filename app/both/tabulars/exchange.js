@@ -3,8 +3,20 @@ App.TabularTable.Exchange = new Tabular.Table({
     collection: App.Collection.Exchange,
     columns: [
         {data: "exDateTime", title: "Exchange Date"},
-        {data: "from", title: "From Currency"},
-        {data: "to", title: "To Currency"},
+        {
+            data: "from",
+            title: "From Currency",
+            render: function (val, type, doc) {
+                return App.Collection.Currency.findOne({_id: val}).symbol;
+            }
+        },
+        {
+            data: "to",
+            title: "To Currency",
+            render: function (val, type, doc) {
+                return App.Collection.Currency.findOne({_id: val}).symbol;
+            }
+        },
         {data: "amount", title: "Amount"},
         {
             title: '<i class="fa fa-bars"></i>',

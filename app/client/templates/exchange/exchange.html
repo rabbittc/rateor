@@ -22,10 +22,10 @@
         <div class="row">
             <div class="col-md-6">
                 {{> afQuickField name='exDateTime' value=exDateTime}}
-                {{> afQuickField name='from' value=fromCurrency}}
+                {{> afQuickField name='from'}}
             </div>
             <div class="col-md-6">
-                {{> afQuickField name='to' value=toCurrency}}
+                {{> afQuickField name="to" options=toOptions}}
                 {{> afQuickField name='amount'}}
             </div>
         </div>
@@ -41,10 +41,10 @@
         <div class="row">
             <div class="col-md-6">
                 {{> afQuickField name='exDateTime' value=exDateTime}}
-                {{> afQuickField name='from' value=fromCurrency}}
+                {{> afQuickField name='from'}}
             </div>
             <div class="col-md-6">
-                {{> afQuickField name='to' value=toCurrency}}
+                {{> afQuickField name="to" options=toOptions}}
                 {{> afQuickField name='amount'}}
             </div>
         </div>
@@ -60,9 +60,9 @@
         <dt>Exchange Date</dt>
         <dd>{{exDateTime}}</dd>
         <dt>From Currency</dt>
-        <dd>{{from}}</dd>
+        <dd>{{fromVal}}</dd>
         <dt>To Currency</dt>
-        <dd>{{to}}</dd>
+        <dd>{{toVal}}</dd>
         <dt>Amount</dt>
         <dd>{{amount}}</dd>
     </dl>

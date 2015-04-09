@@ -2,11 +2,12 @@
  * List
  */
 App.List = {
-    currency: function () {
+    currency: function (selector) {
+        var selector = _.isUndefined(selector) ? {} : selector;
         var list = [];
-        var currency = App.Collection.Currency.find();
+        var currency = App.Collection.Currency.find(selector);
         currency.forEach(function (obj) {
-            list.push({label: obj.symbol, value: obj.symbol})
+            list.push({label: obj.symbol, value: obj._id})
         });
         return list;
     },

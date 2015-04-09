@@ -17,6 +17,9 @@ Template.app_exchange.events({
     'click .update': function (e, t) {
         var data = App.Collection.Exchange.findOne(this._id);
 
+        var from = data.from;
+        Session.set("toOptions", App.List.currency({_id: {$ne: from}}));
+
         alertify.customExchange(renderTemplate(Template.app_exchangeUpdate, data))
             .set({
                 title: '<i class="fa fa-pencil"> Exchange'
@@ -42,6 +45,9 @@ Template.app_exchange.events({
             });
     },
     'click .show': function (e, t) {
+        this.fromVal = App.Collection.Currency.findOne({_id: this.from}).symbol;
+        this.toVal = App.Collection.Currency.findOne({_id: this.to}).symbol;
+
         alertify.alert(renderTemplate(Template.app_exchangeShow, this))
             .set({
                 title: '<i class="fa fa-eye"></i> Exchange'
@@ -56,24 +62,8 @@ Template.app_exchangeInsert.helpers({
     exDateTime: function () {
         return Session.get('exDateTime');
     },
-    fromCurrency: function () {
-        return Session.get('fromCurrency');
-    },
-    toCurrency: function () {
-        return Session.get('toCurrency');
-    }
-});
-
-Template.app_exchangeInsert.events({
-    'change [name="from"]': function () {
-        var from = $('[name="from"]').val();
-        if (from == 'KHR') {
-            Session.set('toCurrency', 'USD');
-        } else if (from == 'USD') {
-            Session.set('toCurrency', 'KHR');
-        } else {
-            Session.set('toCurrency', '');
-        }
+    toOptions: function () {
+        return Session.get('toOptions');
     }
 });
 
@@ -84,16 +74,46 @@ Template.app_exchangeInsert.onRendered(function () {
     Meteor.call('clock', function (error, result) {
         Session.set('exDateTime', result);
     });
-    Session.set('fromCurrency', 'KHR');
-    Session.set('toCurrency', '');
+});
+
+Template.app_exchangeInsert.events({
+    'change [name="from"]': function () {
+
+        var from = $('[name="from"]').val();
+
+        if (_.isEmpty(from)) {
+            Session.set("toOptions", []);
+        } else {
+            Session.set("toOptions", App.List.currency({_id: {$ne: from}}));
+        }
+    }
 });
 
 /**
  * Update
  */
+Template.app_exchangeUpdate.helpers({
+    toOptions: function () {
+        return Session.get("toOptions");
+    }
+});
+
 Template.app_exchangeUpdate.onRendered(function () {
     var name = $('[name="exDateTime"]');
     DateTimePicker.dateTime(name);
+});
+
+Template.app_exchangeUpdate.events({
+    'change [name="from"]': function () {
+
+        var from = $('[name="from"]').val();
+
+        if (_.isEmpty(from)) {
+            Session.set("toOptions", []);
+        } else {
+            Session.set("toOptions", App.List.currency({_id: {$ne: from}}));
+        }
+    }
 });
 
 /**

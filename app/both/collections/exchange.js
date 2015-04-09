@@ -26,10 +26,7 @@ App.Schema.Exchange = new SimpleSchema({
         type: String,
         label: "To currency",
         autoform: {
-            type: "select2",
-            options: function () {
-                return App.List.currency();
-            }
+            type: "select2"
         }
     },
     amount: {

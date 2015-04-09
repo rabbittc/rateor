@@ -14,5 +14,12 @@ Meteor.startup(function () {
                 symbol: 'USD'
             }
         )
+        App.Collection.Currency.insert(
+            {
+                _id: '5',
+                name: 'Thai Bath',
+                symbol: 'THB'
+            }
+        )
     }
 });

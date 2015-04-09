@@ -19,7 +19,7 @@ blaze@2.1.2
 blaze-tools@1.0.3
 boilerplate-generator@1.0.3
 callback-hook@1.0.3
-cfs:http-methods@0.0.27
+cfs:http-methods@0.0.28
 check@1.0.5
 chrismbeckett:toastr@2.1.0
 chuangbo:cookie@1.1.0
@@ -73,7 +73,7 @@ minimongo@1.0.8
 mizzao:bootboxjs@4.4.0
 mobile-status-bar@1.0.3
 momentjs:moment@2.10.0
-monbro:iron-router-breadcrumb@1.0.6
+monbro:iron-router-breadcrumb@1.0.7
 mongo@1.1.0
 mrt:moment@2.8.1
 multiply:iron-router-progress@1.0.1

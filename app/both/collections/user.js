@@ -4,7 +4,7 @@
 var UserProfile = new SimpleSchema({
     fullName: {
         type: String,
-        regEx: /^[a-zA-Z]{2,25}$/
+        optional: true
     },
     branch: {
         type: [String],
@@ -25,13 +25,14 @@ App.Schema.User = new SimpleSchema({
         type: String,
         label: 'Username',
         unique: true,
-        regEx: /^[a-z0-9A-Z_]{3,15}$/
+        min: 3
     },
     email: {
         type: String,
         label: 'Email',
         unique: true,
-        regEx: SimpleSchema.RegEx.Email
+        regEx: SimpleSchema.RegEx.Email,
+        optional:true
     },
     password: {
         type: String,

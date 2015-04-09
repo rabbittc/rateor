@@ -11,7 +11,10 @@ Template.app_user.events({
 
         data.password = 'the same';
         data.confirmPassword = 'the same';
-        data.email = data.emails[0].address;
+
+        if (typeof data.emails !== 'undefined') {
+            data.email = data.emails[0].address;
+        }
 
         var roles = [];
         var getGroup = Roles.getGroupsForUser(id);
@@ -41,8 +44,30 @@ Template.app_user.events({
         });
     },
     'click .show': function (e, t) {
-        this.profile.branch = this.profile.branch.join(' | ');
-        this.roles = Roles.getGroupsForUser(this._id).join(' | ');
+
+        // Check email
+        if (typeof this.emails !== 'undefined') {
+            this.emails = this.emails[0].address;
+        } else {
+            this.emails = "";
+        }
+
+        // Check branch
+        if (_.isObject(this.profile.branch)) {
+            this.profile.branch = JSON.stringify(this.profile.branch);
+        } else {
+            this.profile.branch = "";
+        }
+
+        // Check roles
+        if (_.isObject(this.roles)) {
+            this.roles = JSON.stringify(this.roles);
+        } else {
+            this.roles = "";
+        }
+
+        //this.roles = Roles.getGroupsForUser(this._id).join(' | ');
+
         bootbox.dialog({
             message: renderTemplate(Template.app_userShow, this),
             title: "User info"

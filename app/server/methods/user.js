@@ -6,12 +6,21 @@ Meteor.methods({
         }
 
         // Add account
-        var id = Accounts.createUser({
-            username: doc.username,
-            email: doc.email,
-            password: doc.password,
-            profile: doc.profile
-        });
+        var id;
+        if (_.isEmpty(doc.email)) {
+            id = Accounts.createUser({
+                username: doc.username,
+                password: doc.password,
+                profile: doc.profile
+            });
+        } else {
+            id = Accounts.createUser({
+                username: doc.username,
+                email: doc.email,
+                password: doc.password,
+                profile: doc.profile
+            });
+        }
 
         // Add roles
         _.each(doc.role, function (element) {
@@ -33,19 +42,29 @@ Meteor.methods({
         }
 
         // Update account
-        Meteor.users.update(id, {
-            $set: {
-                username: doc.username,
-                emails: [
-                    {
-                        address: doc.email,
-                        verified: false
-                    }
-                ],
-                profile: doc.profile,
-                roles: {}
-            }
-        });
+        if (_.isEmpty(doc.email)) {
+            Meteor.users.update(id, {
+                $set: {
+                    username: doc.username,
+                    profile: doc.profile,
+                    roles: {}
+                }
+            });
+        } else {
+            Meteor.users.update(id, {
+                $set: {
+                    username: doc.username,
+                    emails: [
+                        {
+                            address: doc.email,
+                            verified: false
+                        }
+                    ],
+                    profile: doc.profile,
+                    roles: {}
+                }
+            });
+        }
 
         // Update password
         if (doc.password != 'the same') {

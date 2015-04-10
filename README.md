@@ -1,4 +1,4 @@
-# Rateor 0.0.9
+# Rateor 0.1.0
 Meteor boilerplate for Rabbit Training Center.
 
 ### Usage
@@ -269,6 +269,8 @@ Meteor boilerplate for Rabbit Training Center.
 - Session: `currentModule` and `currentBranch`
 
 ### Changelog
+- v 0.1.0 (2014-04-10)
+    - add selectOne param on select list
 - v 0.0.9 (2014-04-10)
     - fix exchange
 - v 0.0.8 (2014-04-10)

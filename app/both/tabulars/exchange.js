@@ -2,7 +2,7 @@ App.TabularTable.Exchange = new Tabular.Table({
     name: "appExchangeList",
     collection: App.Collection.Exchange,
     columns: [
-        {data: "exDateTime", title: "Exchange Date"},
+        {data: "exDate", title: "Date"},
         {
             data: "from",
             title: "From Currency",

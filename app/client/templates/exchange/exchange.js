@@ -29,7 +29,7 @@ Template.app_exchange.events({
     'click .remove': function (e, t) {
         var id = this._id;
 
-        alertify.confirm("Are you sure to delete [" + this.exDateTime + "]?")
+        alertify.confirm("Are you sure to delete [" + this.exDate + "]?")
             .set({
                 onok: function (closeEvent) {
 
@@ -45,8 +45,8 @@ Template.app_exchange.events({
             });
     },
     'click .show': function (e, t) {
-        this.fromVal = App.Collection.Currency.findOne({_id: this.from}).symbol;
-        this.toVal = App.Collection.Currency.findOne({_id: this.to}).symbol;
+        this.getFrom = App.Collection.Currency.findOne({_id: this.from}).symbol;
+        this.getTo = App.Collection.Currency.findOne({_id: this.to}).symbol;
 
         alertify.alert(renderTemplate(Template.app_exchangeShow, this))
             .set({
@@ -59,33 +59,18 @@ Template.app_exchange.events({
  * Insert
  */
 Template.app_exchangeInsert.helpers({
-    exDateTime: function () {
-        return Session.get('exDateTime');
-    },
     toOptions: function () {
         return Session.get('toOptions');
     }
 });
 
 Template.app_exchangeInsert.onRendered(function () {
-    var name = $('[name="exDateTime"]');
-    DateTimePicker.dateTime(name);
-
-    Meteor.call('clock', function (error, result) {
-        Session.set('exDateTime', result);
-    });
+    configDate();
 });
 
 Template.app_exchangeInsert.events({
     'change [name="from"]': function () {
-
-        var from = $('[name="from"]').val();
-
-        if (_.isEmpty(from)) {
-            Session.set("toOptions", []);
-        } else {
-            Session.set("toOptions", App.List.currency({_id: {$ne: from}}));
-        }
+        fromChange();
     }
 });
 
@@ -99,20 +84,12 @@ Template.app_exchangeUpdate.helpers({
 });
 
 Template.app_exchangeUpdate.onRendered(function () {
-    var name = $('[name="exDateTime"]');
-    DateTimePicker.dateTime(name);
+    configDate();
 });
 
 Template.app_exchangeUpdate.events({
     'change [name="from"]': function () {
-
-        var from = $('[name="from"]').val();
-
-        if (_.isEmpty(from)) {
-            Session.set("toOptions", []);
-        } else {
-            Session.set("toOptions", App.List.currency({_id: {$ne: from}}));
-        }
+        fromChange();
     }
 });
 
@@ -122,12 +99,6 @@ Template.app_exchangeUpdate.events({
 AutoForm.hooks({
     app_exchangeInsert: {
         onSuccess: function (formType, result) {
-            Meteor.call('clock', function (error, result) {
-                Session.set('exDateTime', result);
-            });
-            Session.set('fromCurrency', null);
-            Session.set('toCurrency', null);
-
             alertify.success('Success');
         },
         onError: function (formType, error) {
@@ -144,3 +115,21 @@ AutoForm.hooks({
         }
     }
 });
+
+/**
+ * Functions
+ */
+var configDate = function () {
+    var name = $('[name="exDate"]');
+    DateTimePicker.date(name);
+};
+
+var fromChange = function () {
+    var from = $('[name="from"]').val();
+
+    if (_.isEmpty(from)) {
+        Session.set("toOptions", []);
+    } else {
+        Session.set("toOptions", App.List.currency({_id: {$ne: from}}));
+    }
+};

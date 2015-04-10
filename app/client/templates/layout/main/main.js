@@ -29,7 +29,7 @@ Template.layoutHeader.onRendered(function () {
  Clock function
  */
 function serverClock() {
-    Meteor.call('clock', function (error, result) {
+    Meteor.call('currentDate', function (error, result) {
         $('#clock').html('<i class="fa fa-calendar"></i> ' + moment(result, 'YYYY-MM-DD H:mm:ss').format('ddd D, MMM YYYY H:mm:ss'));
     });
 }

@@ -21,7 +21,7 @@
     {{#autoForm collection=App.Collection.Exchange id="app_exchangeInsert" type="insert"}}
         <div class="row">
             <div class="col-md-6">
-                {{> afQuickField name='exDateTime' value=exDateTime}}
+                {{> afQuickField name='exDate'}}
                 {{> afQuickField name='from'}}
             </div>
             <div class="col-md-6">
@@ -40,7 +40,7 @@
     {{#autoForm collection=App.Collection.Exchange id="app_exchangeUpdate" doc=this type="update"}}
         <div class="row">
             <div class="col-md-6">
-                {{> afQuickField name='exDateTime' value=exDateTime}}
+                {{> afQuickField name='exDate'}}
                 {{> afQuickField name='from'}}
             </div>
             <div class="col-md-6">
@@ -57,12 +57,12 @@
 <!--Show-->
 <template name="app_exchangeShow">
     <dl class="dl-horizontal">
-        <dt>Exchange Date</dt>
-        <dd>{{exDateTime}}</dd>
+        <dt>Date</dt>
+        <dd>{{exDate}}</dd>
         <dt>From Currency</dt>
-        <dd>{{fromVal}}</dd>
+        <dd>{{getFrom}}</dd>
         <dt>To Currency</dt>
-        <dd>{{toVal}}</dd>
+        <dd>{{getTo}}</dd>
         <dt>Amount</dt>
         <dd>{{amount}}</dd>
     </dl>

@@ -7,10 +7,15 @@ App.Collection.Exchange = new Mongo.Collection("app_exchange");
  * Schema
  */
 App.Schema.Exchange = new SimpleSchema({
-    exDateTime: {
+    exDate: {
         type: String,
-        label: "Exchange date",
-        unique: true
+        label: "Date",
+        //unique: true,
+        defaultValue: function () {
+            var currentDate = moment(ReactiveMethod.call("currentDate"), 'YYYY-MM-DD H:mm:ss').format('YYYY-MM-DD');
+
+            return currentDate;
+        }
     },
     from: {
         type: String,

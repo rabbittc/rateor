@@ -14,4 +14,4 @@ App.Collection.Branch.permit(['remove']).appIfSuper().apply();
  * Exchange
  */
 //App.Collection.Exchange.permit(['insert', 'update', 'remove']).appIfSuperOrAdmin().apply();
-App.Collection.Exchange.permit(['insert', 'update', 'remove']).apply();
+App.Collection.Exchange.permit(['insert', 'update', 'remove']).ifLoggedIn().apply();

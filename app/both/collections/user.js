@@ -11,7 +11,7 @@ var UserProfile = new SimpleSchema({
         autoform: {
             type: "select-multiple",
             options: function () {
-                return App.List.branch();
+                return App.List.branch(false);
             }
         }
     }
@@ -57,7 +57,7 @@ App.Schema.User = new SimpleSchema({
         autoform: {
             type: "select-multiple",
             options: function () {
-                return App.List.role();
+                return App.List.role(false);
             }
         }
     }

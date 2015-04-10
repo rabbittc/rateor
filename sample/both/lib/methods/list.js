@@ -2,17 +2,22 @@
  * List
  */
 Sample.List = {
-    gender: function () {
-        var list = [
-            {label: "(Select One)", value: ""},
-            {label: 'Male', value: 'M'},
-            {label: 'Female', value: 'F'}
-        ];
+    gender: function (selectOne) {
+        var list = [];
+        if (!_.isEqual(selectOne, false)) {
+            list.push({label: "(Select One)", value: ""});
+        }
+
+        list.push({label: 'Male', value: 'M'});
+        list.push({label: 'Female', value: 'F'});
 
         return list;
     },
-    address: function () {
-        var list = [{label: "(Select One)", value: ""}];
+    address: function (selectOne) {
+        var list = [];
+        if (!_.isEqual(selectOne, false)) {
+            list.push({label: "(Select One)", value: ""});
+        }
 
         Sample.Collection.Address.find()
             .forEach(function (obj) {

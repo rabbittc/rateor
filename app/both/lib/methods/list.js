@@ -13,10 +13,13 @@ App.List = {
 
         return list;
     },
-    role: function () {
-        var list = [{label: "(Select One)", value: ""}];
+    role: function (selectOne) {
+        var list = [];
+        if (!_.isEqual(selectOne, false)) {
+            list.push({label: "(Select One)", value: ""});
+        }
 
-        Module.forEach(function (val, key) {
+        _.each(Module, function (val, key) {
             var options = [];
             _.each(Module[key].roles, function (roleVal) {
                 if (!(key == 'App' && roleVal == 'super')) {
@@ -41,8 +44,11 @@ App.List = {
 
         return list;
     },
-    branch: function () {
-        var list = [{label: "(Select One)", value: ""}];
+    branch: function (selectOne) {
+        var list = [];
+        if (!_.isEqual(selectOne, false)) {
+            list.push({label: "(Select One)", value: ""});
+        }
 
         App.Collection.Branch.find()
             .forEach(function (obj) {

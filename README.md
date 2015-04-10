@@ -1,4 +1,4 @@
-# Rateor 0.1.1
+# Rateor 0.1.2
 Meteor boilerplate for Rabbit Training Center.
 
 ### Usage
@@ -270,6 +270,17 @@ Meteor boilerplate for Rabbit Training Center.
         fa.remove("title");
         fa.custom("name", "title");
 
+- Get current datetime from server
+
+        // Default call
+        Meteor.call('currentDate', function (error, result) {
+            // result 'YYYY-MM-DD H:mm:ss'
+            ...
+        });
+
+        // Reactive call
+        var currentDate = ReactiveMethod.call("currentDate"); // 'YYYY-MM-DD H:mm:ss'
+
 ### Note
 - Router name: `rabbit.routerName`, Url `rabbit/routerName`
 - Router name for report: rabbit.routerName`Report`, Url: rabbit/routerName`Report` and rabbit/routerName`ReportGen`
@@ -281,6 +292,8 @@ Meteor boilerplate for Rabbit Training Center.
 - Session: `currentModule` and `currentBranch`
 
 ### Changelog
+- v 0.1.2 (2014-04-10)
+    - update readme (current datetime on server)
 - v 0.1.1 (2014-04-10)
     - add new fontawesome helper
 - v 0.1.0 (2014-04-10)

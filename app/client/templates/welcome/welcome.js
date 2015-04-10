@@ -15,13 +15,7 @@ Template.app_welcome.helpers({
 /**
  * Config
  */
-Template.app_welcomeConfig.helpers({
-    doc: function () {
-        var module = Session.get('currentModule');
-        var branch = Session.get('currentBranch');
-        return {module: module, branch: branch};
-    }
-});
+Template.app_welcomeConfig.helpers({});
 
 /**
  * Hook

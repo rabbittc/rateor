@@ -1,4 +1,4 @@
-# Rateor 0.0.7
+# Rateor 0.0.8
 Meteor boilerplate for Rabbit Training Center.
 
 ### Usage
@@ -131,6 +131,7 @@ Meteor boilerplate for Rabbit Training Center.
         Rabbit.List = {
             gender: function () {
                 var list = [
+                    {label: '(Select One)', value: ''},
                     {label: 'Male', value: 'M'},
                     {label: 'Female', value: 'F'}
                 ];
@@ -138,9 +139,11 @@ Meteor boilerplate for Rabbit Training Center.
                 return list;
             },
             address: function () {
-                var list = Rabbit.Collection.Address.find()
-                    .map(function (obj) {
-                        return {label: obj._id + ' : ' + obj.name, value: obj._id};
+                var list = [{label: '(Select One)', value: ''}];
+
+                Rabbit.Collection.Address.find()
+                    .forEach(function (obj) {
+                        list.push({label: obj._id + ' : ' + obj.name, value: obj._id});
                     });
 
                 return list;
@@ -266,6 +269,8 @@ Meteor boilerplate for Rabbit Training Center.
 - Session: `currentModule` and `currentBranch`
 
 ### Changelog
+- v 0.0.8 (2014-04-10)
+    - fix select2
 - v 0.0.7 (2014-04-09)
     - fix exchange form
 - v 0.0.6 (2014-04-09)

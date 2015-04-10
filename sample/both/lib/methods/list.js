@@ -4,6 +4,7 @@
 Sample.List = {
     gender: function () {
         var list = [
+            {label: "(Select One)", value: ""},
             {label: 'Male', value: 'M'},
             {label: 'Female', value: 'F'}
         ];
@@ -11,9 +12,11 @@ Sample.List = {
         return list;
     },
     address: function () {
-        var list = Sample.Collection.Address.find()
-            .map(function (obj) {
-                return {label: obj._id + ' : ' + obj.name, value: obj._id};
+        var list = [{label: "(Select One)", value: ""}];
+
+        Sample.Collection.Address.find()
+            .forEach(function (obj) {
+                list.push({label: obj._id + ' : ' + obj.name, value: obj._id});
             });
 
         return list;

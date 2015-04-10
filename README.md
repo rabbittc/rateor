@@ -1,4 +1,4 @@
-# Rateor 0.1.2
+# Rateor 0.1.3
 Meteor boilerplate for Rabbit Training Center.
 
 ### Usage
@@ -87,7 +87,7 @@ Meteor boilerplate for Rabbit Training Center.
 
         /* Tabular */
         Rabbit.TabularTable = {};
-- Create security method in `rabbit/server/security.js`
+- Create security method in `rabbit/server/app/security.js`
 
         /**
          * Admin
@@ -123,6 +123,11 @@ Meteor boilerplate for Rabbit Training Center.
         });
 - Create home page (router, template)
 - Config menu bar in `rabbit/client/templates/layout/navbar.html`
+
+        <template name="rabbit_navbar">
+            ...
+        </template>
+
 - Create list view of select options in `rabbit/both/lib/methods/list.js`
 
         /**
@@ -170,6 +175,8 @@ Meteor boilerplate for Rabbit Training Center.
         Template.templateName.onRendered(function(){
             var name = $('[name="date"]');
             DateTimePicker.date(name);
+
+            // .date(), .dateTime(), .time(), .date2(), .dateRange(), .dateTimeRange()
         })
 - Render Template in `rabbit/client/app/methods`
 
@@ -292,6 +299,9 @@ Meteor boilerplate for Rabbit Training Center.
 - Session: `currentModule` and `currentBranch`
 
 ### Changelog
+- v 0.1.3 (2014-04-11)
+    - update readme
+    - remove backup/restore package
 - v 0.1.2 (2014-04-10)
     - update readme (current datetime on server)
 - v 0.1.1 (2014-04-10)

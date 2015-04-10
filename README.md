@@ -257,7 +257,7 @@ Meteor boilerplate for Rabbit Training Center.
         // How to get data
         var $customers = $(alertify.customCustomer().elements.content);
         alert($customers.find("#name"));
-- Font Awesome in in `rabbit/client/app/methods`
+- Font Awesome in `rabbit/client/app/methods`
 
         // Use in template
         {{fa "name"}} // name = "plus"

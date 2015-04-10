@@ -1,4 +1,4 @@
-# Rateor 0.1.0
+# Rateor 0.1.1
 Meteor boilerplate for Rabbit Training Center.
 
 ### Usage
@@ -165,13 +165,13 @@ Meteor boilerplate for Rabbit Training Center.
                 {collection: App.Collection.Test2, selector: {_id: "002"}}
             ]
         );// return boolean
-- DateTimePicker in `rabbit/client/lib/methods`
+- DateTimePicker in `rabbit/client/app/methods`
 
         Template.templateName.onRendered(function(){
             var name = $('[name="date"]');
             DateTimePicker.date(name);
         })
-- Render Template in `rabbit/client/lib/methods`
+- Render Template in `rabbit/client/app/methods`
 
         // Use with bootbox
         var data = {name: value, gender: value};
@@ -180,7 +180,7 @@ Meteor boilerplate for Rabbit Training Center.
                     title: "Title"
                 });
 
-- Modal Template in `rabbit/client/lib/methods`
+- Modal Template in `rabbit/client/app/methods`
 
         // Template
         <template name="sample_testInsert">
@@ -230,7 +230,7 @@ Meteor boilerplate for Rabbit Training Center.
            ModalTemplate.show('sample_testInsert', data);
         },
 
-- Modal Max Height in `rabbit/client/lib/methods`
+- Modal Max Height in `rabbit/client/app/methods`
 
         // Use with bootbox
         'click .show': function (e, t) {
@@ -240,7 +240,7 @@ Meteor boilerplate for Rabbit Training Center.
             });
             modalMaxHeight();
         }
-- Alertify
+- Alertify in `rabbit/client/app/methods`
 
         // How to use custom
         createCustomAlert(["customer", "addressAddon"]);
@@ -257,6 +257,18 @@ Meteor boilerplate for Rabbit Training Center.
         // How to get data
         var $customers = $(alertify.customCustomer().elements.content);
         alert($customers.find("#name"));
+- Font Awesome in in `rabbit/client/app/methods`
+
+        // Use in template
+        {{fa "name"}} // name = "plus"
+
+        // Use in js
+        fa.list("title");
+        fa.eye("title");
+        fa.plus("title");
+        fa.pencil("title");
+        fa.remove("title");
+        fa.custom("name", "title");
 
 ### Note
 - Router name: `rabbit.routerName`, Url `rabbit/routerName`
@@ -269,6 +281,8 @@ Meteor boilerplate for Rabbit Training Center.
 - Session: `currentModule` and `currentBranch`
 
 ### Changelog
+- v 0.1.1 (2014-04-10)
+    - add new fontawesome helper
 - v 0.1.0 (2014-04-10)
     - add selectOne param on select list
 - v 0.0.9 (2014-04-10)

@@ -1,7 +1,7 @@
 <!--Index-->
 <template name="sample_customer">
     <p>
-        <button type="button" class="btn btn-primary insert">Add New</button>
+        <button type="button" class="btn btn-primary insert">{{fa "plus"}} Add New</button>
     </p>
 
     {{> tabular table=Sample.TabularTable.Customer class="table table-striped table-bordered table-condensed table-hover"}}
@@ -10,9 +10,9 @@
 <!--Action-->
 <template name="sample_customerAction">
     {{#tabularAction}}
-        <li><a href="#" class="update"><i class="fa fa-pencil"></i> Update</a></li>
-        <li><a href="#" class="remove"><i class="fa fa-remove"></i> Remove</a></li>
-        <li><a href="#" class="show"><i class="fa fa-eye"></i> Show</a></li>
+        <li><a href="#" class="update">{{fa "pencil"}} Update</a></li>
+        <li><a href="#" class="remove">{{fa "remove"}} Remove</a></li>
+        <li><a href="#" class="show">{{fa "eye"}} Show</a></li>
     {{/tabularAction}}
 </template>
 
@@ -34,7 +34,7 @@
                         {{> afFieldInput name='address'}}
                         <span class="input-group-addon">
                             <a href="#" class="addressInsertAddon">
-                                <i class="fa fa-plus"></i>
+                                {{fa "plus"}}
                             </a>
                         </span>
                     </div>
@@ -48,8 +48,8 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-primary">Save</button>
-        <button type="reset" class="btn btn-default">Reset</button>
+        <button type="submit" class="btn btn-primary">{{fa "floppy-o"}} Save</button>
+        <button type="reset" class="btn btn-default">{{fa "refresh"}} Reset</button>
     {{/autoForm}}
 </template>
 
@@ -63,7 +63,7 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="submit" class="btn btn-primary">{{fa "floppy-o"}} Save</button>
 
     {{/autoForm}}
 </template>
@@ -87,7 +87,7 @@
                         {{> afFieldInput name='address'}}
                         <span class="input-group-addon">
                             <a href="#" class="addressInsertAddon">
-                                <i class="fa fa-plus"></i>
+                                {{fa "plus"}}
                             </a>
                         </span>
                     </div>
@@ -101,8 +101,8 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-primary">Save</button>
-        <button type="reset" class="btn btn-default">Reset</button>
+        <button type="submit" class="btn btn-primary">{{fa "floppy-o"}} Save</button>
+        <button type="reset" class="btn btn-default">{{fa "refresh"}} Reset</button>
     {{/autoForm}}
 
 </template>

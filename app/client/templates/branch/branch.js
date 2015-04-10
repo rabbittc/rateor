@@ -10,7 +10,7 @@ Template.app_branch.events({
     'click .insert': function (e, t) {
         alertify.customBranch(renderTemplate(Template.app_branchInsert))
             .set({
-                title: "<i class='fa fa-plus'></i> Branch"
+                title: fa.plus("Branch")
             })
             .maximize();
     },
@@ -19,7 +19,7 @@ Template.app_branch.events({
 
         alertify.customBranch(renderTemplate(Template.app_branchUpdate, data))
             .set({
-                title: '<i class="fa fa-pencil"> Branch'
+                title: fa.pencil("Branch")
             })
             .maximize();
     },
@@ -38,13 +38,13 @@ Template.app_branch.events({
                         }
                     });
                 },
-                title: '<i class="fa fa-remove"></i> Branch'
+                title: fa.remove("Branch")
             });
     },
     'click .show': function (e, t) {
         alertify.alert(renderTemplate(Template.app_branchShow, this))
             .set({
-                title: '<i class="fa fa-eye"></i> Branch'
+                title: fa.eye("Branch")
             });
     }
 });

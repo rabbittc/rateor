@@ -15,7 +15,6 @@ fortawesome:fontawesome
 accounts-password
 ian:accounts-ui-bootstrap-3
 iron:router
-monbro:iron-router-breadcrumb
 zimme:iron-router-active
 multiply:iron-router-progress
 francocatena:status

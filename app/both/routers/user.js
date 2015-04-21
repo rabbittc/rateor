@@ -5,6 +5,7 @@ Router.route('app/user', function () {
 }, {
     name: 'app.user',
     header: {title: 'user', sub: '', icon: 'users'},
+    title: "User",
     waitOn: function () {
         return Meteor.subscribe('appUser');
     }

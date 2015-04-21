@@ -75,18 +75,20 @@ code {
 ------------------------*/
 .jumbotron {
     padding: 15px 15px;
-    margin-bottom: 30px;
+    margin-top: 25px;
     color: inherit;
     background-color: #EEE;
 }
 
-.jumbotron h2 {
+.jumbotron h1 {
     color: #db4814;
-    text-align: left;
+    text-align: center;
 }
 
-.jumbotron-body {
-    font-size: 18px;
+/* Page not found
+------------------------*/
+.not-fount {
+    margin-top: 25px;
 }
 
 /* BS3 modal

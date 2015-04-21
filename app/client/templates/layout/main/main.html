@@ -37,16 +37,18 @@
         {{> status}}
 
         {{#unless notFound}}
-            <div class="page-header">
-                <h3>
-                    <i class="fa fa-{{header.icon}}"></i>
-                    {{header.title}}
-                    <small>{{header.sub}}</small>
+            {{#if currentUser}}
+                <div class="page-header">
+                    <h3>
+                        <i class="fa fa-{{header.icon}}"></i>
+                        {{header.title}}
+                        <small>{{header.sub}}</small>
 
                     <span id="clock" class="pull-right" style="font-size: 12px; padding: 10px 0px; margin-bottom: 0px">
                     </span>
-                </h3>
-            </div>
+                    </h3>
+                </div>
+            {{/if}}
         {{/unless}}
 
         {{> yield}}

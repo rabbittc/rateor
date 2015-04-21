@@ -4,5 +4,6 @@ Router.route('app/home', function () {
 
 }, {
     name: 'app.home',
-    header: {title: 'home', sub: '', icon: 'home'}
+    header: {title: 'home', sub: '', icon: 'home'},
+    title: "Home"
 });

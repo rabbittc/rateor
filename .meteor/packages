@@ -18,7 +18,6 @@ iron:router
 zimme:iron-router-active
 multiply:iron-router-progress
 francocatena:status
-manuelschoebel:ms-seo
 aldeed:collection2
 dburles:collection-helpers
 aldeed:simple-schema
@@ -51,6 +50,5 @@ maazalik:highcharts
 manuelschoebel:wait-on-lib
 risul:chance
 simple:reactive-method
-softwarerero:accounts-t9n
-comerc:lang
 loftsteinn:bootstrap3-daterangepicker
+rainhaven:iron-seo

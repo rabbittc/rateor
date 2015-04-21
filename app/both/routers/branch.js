@@ -5,6 +5,7 @@ Router.route('app/branch', function () {
 }, {
     name: 'app.branch',
     header: {title: 'branch', sub: '', icon: 'sitemap'},
+    title: "Branch",
     waitOn: function () {
         return Meteor.subscribe('appBranch');
     }

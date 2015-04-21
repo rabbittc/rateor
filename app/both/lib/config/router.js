@@ -8,7 +8,8 @@ Router.configure({
     progressTick: true,
     progressSpinner: true,
     progressDelay: false, // 100
-    progressDebug: true
+    progressDebug: true,
+    title: "Rabbit Project"
 });
 
 /**

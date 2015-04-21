@@ -11,7 +11,8 @@ Router.route('sample/myCustomerReport', function () {
 
 }, {
     name: 'sample.myCustomerReport',
-    header: {title: 'my customer', sub: '', icon: 'file-text-o'}
+    header: {title: 'my customer', sub: '', icon: 'file-text-o'},
+    title: "My Customer"
 });
 
 Router.route('sample/myCustomerReportGen', function () {

@@ -5,6 +5,7 @@ Router.route('app/exchange', function () {
 }, {
     name: 'app.exchange',
     header: {title: 'exchange', icon: 'exchange'},
+    title: "Exchange",
     waitOn: function () {
         return Meteor.subscribe('appExchange');
     }

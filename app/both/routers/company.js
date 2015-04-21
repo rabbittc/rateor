@@ -8,5 +8,6 @@ Router.route('app/company', function () {
 
 }, {
     name: 'app.company',
-    header: {title: 'company', icon: 'briefcase'}
+    header: {title: 'company', icon: 'briefcase'},
+    title: "Company"
 });

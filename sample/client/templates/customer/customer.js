@@ -125,7 +125,7 @@ AutoForm.hooks({
     sample_addressInsertAddon: {
         before: {
             insert: function (doc) {
-                doc._id = IDGenertor.gen(Sample.Collection.Address, '_id', 3);
+                doc._id = idGenerator.gen(Sample.Collection.Address, '_id', 3);
                 return doc;
             }
         },

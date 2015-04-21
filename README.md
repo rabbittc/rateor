@@ -1,4 +1,4 @@
-# Rateor 0.1.6
+# Rateor 0.1.7
 Meteor boilerplate for Rabbit Training Center.
 
 ### Usage
@@ -156,16 +156,9 @@ Meteor boilerplate for Rabbit Training Center.
 
 ### Rabbit packages
 - `theara:id-generator`
+- `theara:relation-exist`
 
 ### Internal methods
-- Relation Exist in `rabbit/both/lib/methods`
-
-        var relation = relationExist(
-            [
-                {collection: App.Collection.Test, selector: {_id: "001"}},
-                {collection: App.Collection.Test2, selector: {_id: "002"}}
-            ]
-        );// return boolean
 - DateTimePicker in `rabbit/client/app/methods`
 
         Template.templateName.onRendered(function(){
@@ -295,6 +288,8 @@ Meteor boilerplate for Rabbit Training Center.
 - Session: `currentModule` and `currentBranch`
 
 ### Changelog
+- v 0.1.7 (2014-04-21)
+    - create new `relation-exist` package
 - v 0.1.6 (2014-04-21)
     - create new `id generator` package
 - v 0.1.5 (2014-04-21)

@@ -1,4 +1,4 @@
-# Rateor 0.1.4
+# Rateor 0.1.5
 Meteor boilerplate for Rabbit Training Center.
 
 ### Usage
@@ -296,6 +296,8 @@ Meteor boilerplate for Rabbit Training Center.
 - Session: `currentModule` and `currentBranch`
 
 ### Changelog
+- v 0.1.5 (2014-04-21)
+    - fix account ui (full name is required)
 - v 0.1.4 (2014-04-21)
     - remove translation
     - add `rainhaven:iron-seo` package for page title

@@ -105,7 +105,7 @@ templating@1.1.1
 tracker@1.0.7
 tsega:bootstrap3-datetimepicker@4.7.14_4
 twbs:bootstrap@3.3.4
-u2622:persistent-session@0.3.2
+u2622:persistent-session@0.3.3
 ui@1.0.6
 underscore@1.0.3
 underscorestring:underscore.string@3.0.3

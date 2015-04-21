@@ -3,8 +3,7 @@
  */
 var UserProfile = new SimpleSchema({
     fullName: {
-        type: String,
-        optional: true
+        type: String
     },
     branch: {
         type: [String],

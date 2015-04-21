@@ -56,7 +56,7 @@ AutoForm.hooks({
     app_branchInsert: {
         before: {
             insert: function (doc) {
-                doc._id = IDGenertor.gen(App.Collection.Branch, '_id', 3);
+                doc._id = idGenerator.gen(App.Collection.Branch, '_id', 3);
                 return doc;
             }
         },

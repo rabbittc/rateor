@@ -1,4 +1,4 @@
-# Rateor 0.1.5
+# Rateor 0.1.6
 Meteor boilerplate for Rabbit Training Center.
 
 ### Usage
@@ -154,11 +154,10 @@ Meteor boilerplate for Rabbit Training Center.
 - Create any methods (server, client or both)
 - Create `Test CRUD`: collection, security in `rabbit/server/security/security.js`, publish/sub, tabular, router, template...
 
-### Internal methods
-- IDGenerator in `app/both/lib/methods`
+### Rabbit packages
+- `theara:id-generator`
 
-        var id = IDGenertor.gen(collection, field, length);
-        var id = IDGenertor.genWithPrefix(collection, field, prefix, length);
+### Internal methods
 - Relation Exist in `rabbit/both/lib/methods`
 
         var relation = relationExist(
@@ -296,6 +295,8 @@ Meteor boilerplate for Rabbit Training Center.
 - Session: `currentModule` and `currentBranch`
 
 ### Changelog
+- v 0.1.6 (2014-04-21)
+    - create new `id generator` package
 - v 0.1.5 (2014-04-21)
     - fix account ui (full name is required)
 - v 0.1.4 (2014-04-21)

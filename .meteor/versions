@@ -102,6 +102,7 @@ srp@1.0.3
 stylus@1.0.7
 tap:i18n@1.4.1
 templating@1.1.1
+theara:id-generator@0.0.1
 tracker@1.0.7
 tsega:bootstrap3-datetimepicker@4.7.14_4
 twbs:bootstrap@3.3.4

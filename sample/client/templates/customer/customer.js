@@ -101,7 +101,7 @@ AutoForm.hooks({
     sample_customerInsert: {
         before: {
             insert: function (doc) {
-                doc._id = IDGenertor.gen(Sample.Collection.Customer, '_id', 3);
+                doc._id = idGenerator.gen(Sample.Collection.Customer, '_id', 3);
                 return doc;
             }
         },

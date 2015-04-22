@@ -1,4 +1,4 @@
-# Rateor 0.1.8
+# Rateor 0.1.9
 Meteor boilerplate for Rabbit Training Center.
 
 ### Usage
@@ -276,6 +276,8 @@ Meteor boilerplate for Rabbit Training Center.
 - Session: `currentModule` and `currentBranch`
 
 ### Changelog
+- v 0.1.9 (2014-04-22)
+    - create new `fa-helpers` package
 - v 0.1.8 (2014-04-22)
     - create new `moneyjs` package
 - v 0.1.7 (2014-04-21)

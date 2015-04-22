@@ -1,4 +1,4 @@
-# Rateor 0.1.7
+# Rateor 0.1.8
 Meteor boilerplate for Rabbit Training Center.
 
 ### Usage
@@ -15,8 +15,7 @@ Meteor boilerplate for Rabbit Training Center.
                 |_lib   // other file or libraries load first
                     |_config    // configuration file
                         namespace.js
-                    |_methods   // other libraries
-                        list.js
+                    list.js
                 |_routers
                     |_reports
                         myReport.js
@@ -157,6 +156,7 @@ Meteor boilerplate for Rabbit Training Center.
 ### Rabbit packages
 - `theara:id-generator`
 - `theara:relation-exist`
+- `theara:moneyjs`
 
 ### Internal methods
 - DateTimePicker in `rabbit/client/app/methods`
@@ -288,6 +288,8 @@ Meteor boilerplate for Rabbit Training Center.
 - Session: `currentModule` and `currentBranch`
 
 ### Changelog
+- v 0.1.8 (2014-04-22)
+    - create new `moneyjs` package
 - v 0.1.7 (2014-04-21)
     - create new `relation-exist` package
 - v 0.1.6 (2014-04-21)

@@ -157,6 +157,7 @@ Meteor boilerplate for Rabbit Training Center.
 - `theara:id-generator`
 - `theara:relation-exist`
 - `theara:moneyjs`
+- `theara:fa-helpers`
 
 ### Internal methods
 - DateTimePicker in `rabbit/client/app/methods`
@@ -253,19 +254,6 @@ Meteor boilerplate for Rabbit Training Center.
         // How to get data
         var $customers = $(alertify.customCustomer().elements.content);
         alert($customers.find("#name"));
-- Font Awesome in `rabbit/client/app/methods`
-
-        // Use in template
-        {{fa "name"}} // name = "plus"
-
-        // Use in js
-        fa.list("title");
-        fa.eye("title");
-        fa.plus("title");
-        fa.pencil("title");
-        fa.remove("title");
-        fa.custom("name", "title");
-
 - Get current datetime from server
 
         // Default call

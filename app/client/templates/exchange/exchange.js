@@ -10,7 +10,7 @@ Template.app_exchange.events({
     'click .insert': function (e, t) {
         alertify.customExchange(renderTemplate(Template.app_exchangeInsert))
             .set({
-                title: fa.plus("Exchange")
+                title: fa("plus", "Exchange")
             })
             .maximize();
     },
@@ -22,7 +22,7 @@ Template.app_exchange.events({
 
         alertify.customExchange(renderTemplate(Template.app_exchangeUpdate, data))
             .set({
-                title: fa.pencil("Exchange")
+                title: fa("pencil", "Exchange")
             })
             .maximize();
     },
@@ -41,7 +41,7 @@ Template.app_exchange.events({
                         }
                     });
                 },
-                title: fa.remove("Exchange")
+                title: fa("remove", "Exchange")
             });
     },
     'click .show': function (e, t) {
@@ -50,7 +50,7 @@ Template.app_exchange.events({
 
         alertify.alert(renderTemplate(Template.app_exchangeShow, this))
             .set({
-                title: fa.eye("Exchange")
+                title: fa("eye", "Exchange")
             });
     }
 });

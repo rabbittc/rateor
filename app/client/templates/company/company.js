@@ -12,7 +12,7 @@ Template.app_company.events({
 
         alertify.customCompany(renderTemplate(Template.app_companyUpdate, data))
             .set({
-                title: fa.pencil("Company")
+                title: fa("pencil", "Company")
             })
             .maximize();
     }

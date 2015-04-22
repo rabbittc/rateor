@@ -11,7 +11,7 @@ Template.sample_customer.events({
 
         alertify.customCustomer(renderTemplate(Template.sample_customerInsert))
             .set({
-                title: fa.plus("Customer")
+                title: fa("plus", "Customer")
             })
             .maximize();
 
@@ -22,7 +22,7 @@ Template.sample_customer.events({
 
         alertify.customCustomer(renderTemplate(Template.sample_customerUpdate, data))
             .set({
-                title: fa.pencil("Customer")
+                title: fa("pencil", "Customer")
             })
             .maximize();
 
@@ -43,7 +43,7 @@ Template.sample_customer.events({
                         }
                     });
                 },
-                title: fa.remove("Customer")
+                title: fa("remove", "Customer")
             });
 
     },
@@ -51,7 +51,7 @@ Template.sample_customer.events({
 
         alertify.alert(renderTemplate(Template.sample_customerShow, this))
             .set({
-                title: fa.eye("Customer")
+                title: fa("eye", "Customer")
             });
 
     }
@@ -69,7 +69,7 @@ Template.sample_customerInsert.events({
 
         alertify.customAddressAddon(renderTemplate(Template.sample_addressInsertAddon))
             .set({
-                title: fa.plus("Address")
+                title: fa("plus", "Address")
             });
 
     }
@@ -87,7 +87,7 @@ Template.sample_customerUpdate.events({
 
         alertify.customAddressAddon(renderTemplate(Template.sample_addressInsertAddon))
             .set({
-                title: fa.plus("Address")
+                title: fa("plus", "Address")
             });
 
     }

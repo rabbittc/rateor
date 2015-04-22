@@ -10,7 +10,7 @@ Template.app_user.events({
     'click .insert': function (e, t) {
         alertify.customUser(renderTemplate(Template.app_userInsert))
             .set({
-                title: fa.plus("User")
+                title: fa("plus", "User")
             })
             .maximize();
     },
@@ -38,7 +38,7 @@ Template.app_user.events({
 
         alertify.customUser(renderTemplate(Template.app_userUpdate, data))
             .set({
-                title: fa.pencil("User")
+                title: fa("pencil", "User")
             })
             .maximize();
     },
@@ -57,7 +57,7 @@ Template.app_user.events({
                         }
                     });
                 },
-                title: fa.remove("Customer")
+                title: fa("remove", "Customer")
             });
     },
     'click .show': function (e, t) {
@@ -85,7 +85,7 @@ Template.app_user.events({
 
         alertify.alert(renderTemplate(Template.app_userShow, this))
             .set({
-                title: fa.eye("User")
+                title: fa("eye", "User")
             });
     }
 });

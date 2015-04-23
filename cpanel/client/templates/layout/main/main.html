@@ -1,0 +1,64 @@
+<head>
+    <link rel="icon" href="/favicon.ico">
+    <title>Rabbit Project</title>
+</head>
+
+<template name="layout">
+    <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{pathFor 'cpanel.welcome'}}">
+                    <!--<img style="display: inline" alt="Brand" width="20" height="20" src="/rabbit.png">-->
+                    {{appName}}
+                </a>
+            </div>
+
+            <!-- header -->
+            {{> layoutHeader}}
+            <!-- /header -->
+
+        </div>
+    </nav>
+
+    <!-- Begin page content -->
+    <div class="container">
+
+        {{> notifications}}
+        {{> status}}
+
+        {{#unless notFound}}
+            {{#if currentUser}}
+                <div class="page-header">
+                    <h3>
+                        <i class="fa fa-{{header.icon}}"></i>
+                        {{header.title}}
+                        <small>{{header.sub}}</small>
+
+                    <span id="clock" class="pull-right" style="font-size: 12px; padding: 10px 0px; margin-bottom: 0px">
+                    </span>
+                    </h3>
+                </div>
+            {{/if}}
+        {{/unless}}
+
+        {{> yield}}
+
+    </div>
+    <!-- /container -->
+
+    <!-- footer -->
+    {{> layoutFooter}}
+    <!-- /footer -->
+
+    </body>
+</template>

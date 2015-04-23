@@ -1,4 +1,4 @@
-# Rateor 0.1.9
+# Rateor 0.2.0
 Meteor boilerplate for Rabbit Training Center.
 
 ### Usage
@@ -52,7 +52,7 @@ Meteor boilerplate for Rabbit Training Center.
             startup.js
 ```
 
-- Config new module and set roles in `app/both/lib/config/module.js`
+- Config new module and set roles in `cpanel/both/lib/config/module.js`
 ```javascript
 .....
 .....
@@ -257,19 +257,22 @@ bootbox.dialog({
 - Alertify in `rabbit/client/app/methods`
 ```javascript
 // How to use custom
-createCustomAlert(["customer", "addressAddon"]);
+createNewAlertify("customer"); // Call in template create/render
 
-alertify.customCustomer(renderTemplate(Template.sample_customerInsert))
+alertify.customer(renderTemplate(Template.sample_customerInsert))
     .set({
         title: "<i class='fa fa-plus'></i> Customer"
     })
     .maximize(); // auto full screen
 
+// How to create multiple 
+createNewAlertify(["customer", "addressAddon"]);// Call in template create/render
+
 // How to close
-alertify.customCustomer().close(); // alertify.customCustomer() && alertify.customCustomer().close();
+alertify.customer().close();
 
 // How to get data
-var $customers = $(alertify.customCustomer().elements.content);
+var $customers = $(alertify.customer().elements.content);
 alert($customers.find("#name"));
 ```
 
@@ -296,6 +299,9 @@ var currentDate = ReactiveMethod.call("currentDate"); // 'YYYY-MM-DD H:mm:ss'
 - Session: `currentModule` and `currentBranch`
 
 ### Changelog
+- v 0.2.0 (2014-04-23)
+    - rename `app` to `cpanel` module
+    - remove prefix `custom` of create custom alertify and change `createCustomAlert` to `createNewAlertify`
 - v 0.1.9 (2014-04-22)
     - create new `fa-helpers` package
 - v 0.1.8 (2014-04-22)
@@ -325,7 +331,7 @@ var currentDate = ReactiveMethod.call("currentDate"); // 'YYYY-MM-DD H:mm:ss'
 - v 0.0.7 (2014-04-09)
     - fix exchange form
 - v 0.0.6 (2014-04-09)
-    - change modal to alertify on app
+    - change modal to alertify on cpanel
 - v 0.0.5 (2014-04-09)
     - fix user validation
 - v 0.0.4 (2014-04-09)

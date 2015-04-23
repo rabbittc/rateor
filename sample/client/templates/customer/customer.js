@@ -1,15 +1,15 @@
 /**
- * Create new custom  alertify
- */
-createCustomAlert(["customer", "addressAddon"]);
-
-/**
  * Index
  */
+Template.sample_customer.onRendered(function () {
+    // Create new  alertify
+    createNewAlertify(["customer", "addressAddon"]);
+});
+
 Template.sample_customer.events({
     'click .insert': function (e, t) {
 
-        alertify.customCustomer(renderTemplate(Template.sample_customerInsert))
+        alertify.customer(renderTemplate(Template.sample_customerInsert))
             .set({
                 title: fa("plus", "Customer")
             })
@@ -20,7 +20,7 @@ Template.sample_customer.events({
 
         var data = Sample.Collection.Customer.findOne(this._id);
 
-        alertify.customCustomer(renderTemplate(Template.sample_customerUpdate, data))
+        alertify.customer(renderTemplate(Template.sample_customerUpdate, data))
             .set({
                 title: fa("pencil", "Customer")
             })
@@ -67,7 +67,7 @@ Template.sample_customerInsert.onRendered(function () {
 Template.sample_customerInsert.events({
     'click .addressInsertAddon': function (e, t) {
 
-        alertify.customAddressAddon(renderTemplate(Template.sample_addressInsertAddon))
+        alertify.addressAddon(renderTemplate(Template.sample_addressInsertAddon))
             .set({
                 title: fa("plus", "Address")
             });
@@ -85,7 +85,7 @@ Template.sample_customerUpdate.onRendered(function () {
 Template.sample_customerUpdate.events({
     'click .addressInsertAddon': function (e, t) {
 
-        alertify.customAddressAddon(renderTemplate(Template.sample_addressInsertAddon))
+        alertify.addressAddon(renderTemplate(Template.sample_addressInsertAddon))
             .set({
                 title: fa("plus", "Address")
             });
@@ -101,7 +101,7 @@ AutoForm.hooks({
     sample_customerInsert: {
         before: {
             insert: function (doc) {
-                doc._id = idGenerator.gen(Sample.Collection.Customer, '_id', 3);
+                doc._id = idGenerator.gen(Sample.Collection.Customer, 3);
                 return doc;
             }
         },
@@ -114,7 +114,7 @@ AutoForm.hooks({
     },
     sample_customerUpdate: {
         onSuccess: function (formType, result) {
-            alertify.customCustomer().close();
+            alertify.customer().close();
             alertify.success('Success');
         },
         onError: function (formType, error) {
@@ -125,12 +125,12 @@ AutoForm.hooks({
     sample_addressInsertAddon: {
         before: {
             insert: function (doc) {
-                doc._id = idGenerator.gen(Sample.Collection.Address, '_id', 3);
+                doc._id = idGenerator.gen(Sample.Collection.Address, 3);
                 return doc;
             }
         },
         onSuccess: function (formType, result) {
-            //alertify.customAddressAddon();
+            //alertify.addressAddon();
             alertify.success('Success');
         },
         onError: function (formType, error) {

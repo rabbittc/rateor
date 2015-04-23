@@ -103,7 +103,7 @@ stylus@1.0.7
 tap:i18n@1.4.1
 templating@1.1.1
 theara:fa-helpers@0.0.2
-theara:id-generator@0.0.1
+theara:id-generator@0.0.3
 theara:moneyjs@0.0.2
 theara:relation-exist@0.0.1
 tracker@1.0.7

@@ -45,10 +45,10 @@ Router.route('sample/myCustomerReportGen', function () {
                 title: function () {
                     return {
                         company: function () {
-                            return App.Collection.Company.findOne();
+                            return Cpanel.Collection.Company.findOne();
                         },
                         branch: function () {
-                            return App.Collection.Branch.findOne();
+                            return Cpanel.Collection.Branch.findOne();
                         },
                         reportName: 'My Customer Report',
                         date: q.date

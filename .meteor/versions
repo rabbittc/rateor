@@ -95,14 +95,14 @@ routepolicy@1.0.5
 service-configuration@1.0.4
 session@1.1.0
 sha@1.0.3
-simple:reactive-method@1.0.1
+simple:reactive-method@1.0.2
 spacebars@1.0.6
 spacebars-compiler@1.0.6
 srp@1.0.3
 stylus@1.0.7
 tap:i18n@1.4.1
 templating@1.1.1
-theara:fa-helpers@0.0.1
+theara:fa-helpers@0.0.2
 theara:id-generator@0.0.1
 theara:moneyjs@0.0.2
 theara:relation-exist@0.0.1

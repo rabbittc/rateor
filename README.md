@@ -1,4 +1,4 @@
-# Rateor 0.2.0
+# Rateor 0.2.1
 Meteor boilerplate for Rabbit Training Center.
 
 ### Usage

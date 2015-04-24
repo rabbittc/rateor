@@ -1,4 +1,4 @@
-# Rateor 0.2.1
+# Rateor 0.2.2
 Meteor boilerplate for Rabbit Training Center.
 
 ### Usage
@@ -351,6 +351,8 @@ var currentDate = ReactiveMethod.call("currentDate"); // 'YYYY-MM-DD H:mm:ss'
 - Session: `currentModule` and `currentBranch`
 
 ### Changelog
+- v 0.2.2 (2014-04-24)
+    - add .gitkeep
 - v 0.2.1 (2014-04-24)
     - config `module.js` in own module (not cpanel)
     - remove unnecessary packages

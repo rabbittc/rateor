@@ -43,7 +43,8 @@ Sample.Schema.Customer = new SimpleSchema({
     },
     telephone: {
         type: String,
-        label: "Telephone"
+        label: "Telephone",
+        optional: true
     },
     email: {
         type: String,

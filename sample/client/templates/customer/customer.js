@@ -101,7 +101,8 @@ AutoForm.hooks({
     sample_customerInsert: {
         before: {
             insert: function (doc) {
-                doc._id = idGenerator.gen(Sample.Collection.Customer, 3);
+                var branchPre = Session.get('currentBranch') + '-';
+                doc._id = idGenerator.genWithPrefix(Sample.Collection.Customer, branchPre, 3);
                 return doc;
             }
         },

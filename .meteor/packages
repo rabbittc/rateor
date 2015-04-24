@@ -16,6 +16,7 @@ accounts-password
 ian:accounts-ui-bootstrap-3
 iron:router
 zimme:iron-router-active
+rainhaven:iron-seo
 multiply:iron-router-progress
 francocatena:status
 aldeed:collection2
@@ -30,11 +31,10 @@ rajit:bootstrap3-datepicker
 aldeed:autoform-bs-datepicker
 tsega:bootstrap3-datetimepicker
 aldeed:autoform-bs-datetimepicker
+loftsteinn:bootstrap3-daterangepicker
 aldeed:tabular
 mizzao:bootboxjs
 ovcharik:alertifyjs
-gfk:notifications
-chrismbeckett:toastr
 u2622:persistent-session
 ongoworks:security
 alanning:roles
@@ -46,12 +46,9 @@ raix:handlebar-helpers
 netanelgilad:excel
 pcel:accounting
 bigdsk:inputmask
-maazalik:highcharts
 manuelschoebel:wait-on-lib
 risul:chance
 simple:reactive-method
-loftsteinn:bootstrap3-daterangepicker
-rainhaven:iron-seo
 theara:id-generator
 theara:relation-exist
 theara:moneyjs

@@ -3,7 +3,7 @@ Meteor boilerplate for Rabbit Training Center.
 
 ### Usage
 - Copy the sample module and rename
-```javascript
+```js
 // Structure
 |_rabbit
     |_both  // run at server and client
@@ -14,8 +14,9 @@ Meteor boilerplate for Rabbit Training Center.
         |_collectionsHelper
         |_lib   // other file or libraries load first
             |_config    // configuration file
+                module.js
                 namespace.js
-            list.js
+            list.js // list view for select box
         |_routers
             |_reports
                 myReport.js
@@ -52,16 +53,18 @@ Meteor boilerplate for Rabbit Training Center.
             startup.js
 ```
 
-- Config new module and set roles in `cpanel/both/lib/config/module.js`
-```javascript
-.....
-.....
-// Rabbit
+- Config new module and set roles in `rabbit/both/lib/config/module.js`
+```js
+/**
+ * Module
+ */
+Module = typeof Module === 'undefined' ? {} : Module;
+Meteor.isClient && Template.registerHelper('Module', Module);
+
 Module.Rabbit = {
     name: 'Rabbit Project',
     version: '0.0.1',
-    title: 'Rabbit Title',
-    description: 'Rabbit Management System',
+    summary: 'Rabbit Management System is ...',
     roles: [
         'admin',
         'general',
@@ -71,7 +74,7 @@ Module.Rabbit = {
 ```
 
 - Config namespace in `rabbit/both/lib/config/namespace.js` to use collection, schema, tabular and other libraries
-```javascript
+```js
 /**
  * Namespace
  */
@@ -90,7 +93,7 @@ Rabbit.TabularTable = {};
 ```
 
 - Create security method in `rabbit/server/app/security.js`
-```javascript
+```js
 /**
  * Admin
  */
@@ -127,29 +130,34 @@ Security.defineMethod("rabbitIfReporter", {
 
 - Create home page (router, template)
 - Config menu bar in `rabbit/client/templates/layout/navbar.html`
-```javascript
+```js
 <template name="rabbit_navbar">
     ...
 </template>
 ```
 
 - Create list view of select options in `rabbit/both/lib/methods/list.js`
-```javascript
+```js
 /**
  * List
  */
 Rabbit.List = {
-    gender: function () {
-        var list = [
-            {label: '(Select One)', value: ''},
-            {label: 'Male', value: 'M'},
-            {label: 'Female', value: 'F'}
-        ];
+    gender: function (selectOne) {
+        var list = [];
+        if (!_.isEqual(selectOne, false)) {
+            list.push({label: "(Select One)", value: ""});
+        }
+
+        list.push({label: 'Male', value: 'M'});
+        list.push({label: 'Female', value: 'F'});
 
         return list;
     },
-    address: function () {
-        var list = [{label: '(Select One)', value: ''}];
+    address: function (selectOne) {
+        var list = [];
+        if (!_.isEqual(selectOne, false)) {
+            list.push({label: "(Select One)", value: ""});
+        }
 
         Rabbit.Collection.Address.find()
             .forEach(function (obj) {
@@ -164,15 +172,59 @@ Rabbit.List = {
 - Create any methods (server, client or both)
 - Create `Test CRUD`: collection, security in `rabbit/server/security/security.js`, publish/sub, tabular, router, template...
 
-### Rabbit packages
-- `theara:id-generator`
-- `theara:relation-exist`
-- `theara:moneyjs`
-- `theara:fa-helpers`
+### Packages
+- jquery
+- underscore
+- underscorestring:underscore.string
+- coffeescript
+- markdown
+- twbs:bootstrap
+- fortawesome:fontawesome
+- accounts-password
+- ian:accounts-ui-bootstrap-3
+- iron:router
+- zimme:iron-router-active
+- rainhaven:iron-seo
+- multiply:iron-router-progress
+- francocatena:status
+- aldeed:collection2
+- dburles:collection-helpers
+- aldeed:simple-schema
+- aldeed:autoform
+- natestrauser:select2
+- zimme:select2-bootstrap3-css
+- aldeed:autoform-select2
+- momentjs:moment
+- rajit:bootstrap3-datepicker
+- aldeed:autoform-bs-datepicker
+- tsega:bootstrap3-datetimepicker
+- aldeed:autoform-bs-datetimepicker
+- loftsteinn:bootstrap3-daterangepicker
+- aldeed:tabular
+- mizzao:bootboxjs
+- ovcharik:alertifyjs
+- u2622:persistent-session
+- ongoworks:security
+- alanning:roles
+- meteorhacks:fast-render
+- reywood:publish-composite
+- meteorhacks:subs-manager
+- dburles:spacebars-tohtml
+- raix:handlebar-helpers
+- netanelgilad:excel
+- pcel:accounting
+- bigdsk:inputmask
+- manuelschoebel:wait-on-lib
+- risul:chance
+- simple:reactive-method
+- theara:id-generator
+- theara:relation-exist
+- theara:moneyjs
+- theara:fa-helpers
 
-### Internal methods
+### Internal libraries
 - DateTimePicker in `rabbit/client/app/methods`
-```javascript
+```js
 Template.templateName.onRendered(function(){
     var name = $('[name="date"]');
     DateTimePicker.date(name);
@@ -182,7 +234,7 @@ Template.templateName.onRendered(function(){
 ```
 
 - Render Template in `rabbit/client/app/methods`
-```javascript
+```js
 // Use with bootbox
 var data = {name: value, gender: value};
 bootbox.dialog({
@@ -192,7 +244,7 @@ bootbox.dialog({
 ```
 
 - Modal Template in `rabbit/client/app/methods`
-```javascript
+```js
 // Template
 <template name="sample_testInsert">
 
@@ -243,7 +295,7 @@ bootbox.dialog({
 ```
 
 - Modal Max Height in `rabbit/client/app/methods`
-```javascript
+```js
 // Use with bootbox
 'click .show': function (e, t) {
     bootbox.dialog({
@@ -255,7 +307,7 @@ bootbox.dialog({
 ```
 
 - Alertify in `rabbit/client/app/methods`
-```javascript
+```js
 // How to use custom
 createNewAlertify("customer"); // Call in template create/render
 
@@ -277,7 +329,7 @@ alert($customers.find("#name"));
 ```
 
 - Get current datetime from server
-```javascript
+```js
 // Default call
 Meteor.call('currentDate', function (error, result) {
     // result 'YYYY-MM-DD H:mm:ss'
@@ -299,6 +351,10 @@ var currentDate = ReactiveMethod.call("currentDate"); // 'YYYY-MM-DD H:mm:ss'
 - Session: `currentModule` and `currentBranch`
 
 ### Changelog
+- v 0.2.1 (2014-04-24)
+    - config `module.js` in own module (not cpanel)
+    - remove unnecessary packages
+    - update readme
 - v 0.2.0 (2014-04-23)
     - rename `app` to `cpanel` module
     - remove prefix `custom` of create custom alertify and change `createCustomAlert` to `createNewAlertify`

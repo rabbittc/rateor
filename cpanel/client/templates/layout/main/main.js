@@ -1,3 +1,6 @@
+/**
+ * Layout
+ */
 Template.layout.helpers({
     appName: function () {
         var group = Session.get('currentModule');
@@ -21,13 +24,27 @@ Template.layout.helpers({
     }
 });
 
+Template.layout.events({
+    'click .navbar-brand': function () {
+        var currentModule = Session.get('currentModule');
+        if (!_.isUndefined(currentModule)) {
+            var info = Module[currentModule];
+            alertify.alert(info.summary)
+                .set({
+                    title: info.name + ' ' + info.version
+                });
+        }
+    }
+});
+
+/**
+ * Layout header
+ */
 Template.layoutHeader.onRendered(function () {
     Meteor.setInterval(serverClock, 1000);
 });
 
-/*
- Clock function
- */
+/* Clock function */
 function serverClock() {
     Meteor.call('currentDate', function (error, result) {
         $('#clock').html('<i class="fa fa-calendar"></i> ' + moment(result, 'YYYY-MM-DD H:mm:ss').format('ddd D, MMM YYYY H:mm:ss'));

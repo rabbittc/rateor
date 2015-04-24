@@ -23,9 +23,6 @@ Router.onBeforeAction(function () {
     // Set page not found session
     Session.set('notFound', false);
 
-    // Clear toastr alert
-    toastr.clear();
-
     this.next();
 
 }, {
@@ -39,9 +36,6 @@ Router.onBeforeAction(function () {
 
     // Set page not found session
     Session.set('notFound', false);
-
-    // Clear toastr alert
-    toastr.clear();
 
     if (!Meteor.userId() || typeof Session.get('currentModule') === 'undefined' || typeof Session.get('currentBranch') === 'undefined') {
         // Clear all auth session

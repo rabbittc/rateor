@@ -21,12 +21,27 @@
     {{#autoForm collection=Cpanel.Collection.Exchange id="cpanel_exchangeInsert" type="insert"}}
         <div class="row">
             <div class="col-md-6">
-                {{> afQuickField name='exDate'}}
-                {{> afQuickField name='from'}}
+                {{> afQuickField name='dateTime'}}
             </div>
             <div class="col-md-6">
-                {{> afQuickField name="to" options=toOptions}}
-                {{> afQuickField name='amount'}}
+                {{> afQuickField name='base' value=doc.base readonly="true"}}
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">Rates</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        {{> afQuickField name='rates.KHR' value=doc.khr}}
+                    </div>
+                    <div class="col-md-4">
+                        {{> afQuickField name='rates.USD' value=doc.usd}}
+                    </div>
+                    <div class="col-md-4">
+                        {{> afQuickField name='rates.THB' value=doc.thb}}
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -40,12 +55,22 @@
     {{#autoForm collection=Cpanel.Collection.Exchange id="cpanel_exchangeUpdate" doc=this type="update"}}
         <div class="row">
             <div class="col-md-6">
-                {{> afQuickField name='exDate'}}
-                {{> afQuickField name='from'}}
+                {{> afQuickField name='dateTime'}}
             </div>
             <div class="col-md-6">
-                {{> afQuickField name="to" options=toOptions}}
-                {{> afQuickField name='amount'}}
+                {{> afQuickField name='base' readonly="true"}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                {{> afQuickField name='rates.KHR'}}
+            </div>
+            <div class="col-md-4">
+                {{> afQuickField name='rates.USD'}}
+            </div>
+            <div class="col-md-4">
+                {{> afQuickField name='rates.THB'}}
             </div>
         </div>
 
@@ -58,12 +83,10 @@
 <template name="cpanel_exchangeShow">
     <dl class="dl-horizontal">
         <dt>Date</dt>
-        <dd>{{exDate}}</dd>
-        <dt>From Currency</dt>
-        <dd>{{getFrom}}</dd>
-        <dt>To Currency</dt>
-        <dd>{{getTo}}</dd>
-        <dt>Amount</dt>
-        <dd>{{amount}}</dd>
+        <dd>{{dateTime}}</dd>
+        <dt>Base Currency</dt>
+        <dd>{{base}}</dd>
+        <dt>Rates</dt>
+        <dd>{{ratesVal}}</dd>
     </dl>
 </template>

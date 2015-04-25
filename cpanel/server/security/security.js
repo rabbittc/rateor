@@ -4,6 +4,11 @@
 Cpanel.Collection.Company.permit(['update']).cpanelIfSuperOrAdmin().apply();
 
 /**
+ * Setting
+ */
+Cpanel.Collection.Setting.permit(['update']).cpanelIfSuperOrAdmin().apply();
+
+/**
  * Branch
  */
 Cpanel.Collection.Branch.permit(['insert']).cpanelIfSuper().apply();

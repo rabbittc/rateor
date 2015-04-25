@@ -6,38 +6,40 @@ Cpanel.Collection.Exchange = new Mongo.Collection("cpanel_exchange");
 /**
  * Schema
  */
+var Rates = new SimpleSchema({
+    KHR: {
+        type: Number,
+        decimal: true,
+        label: "KHR"
+    },
+    USD: {
+        type: Number,
+        decimal: true,
+        label: "USD"
+    },
+    THB: {
+        type: Number,
+        decimal: true,
+        label: "THB"
+    }
+});
+
 Cpanel.Schema.Exchange = new SimpleSchema({
-    exDate: {
+    dateTime: {
         type: String,
         label: "Date",
-        //unique: true,
+        unique: true,
         defaultValue: function () {
-            var currentDate = moment(ReactiveMethod.call("currentDate"), 'YYYY-MM-DD H:mm:ss').format('YYYY-MM-DD');
-
+            var currentDate = moment(ReactiveMethod.call("currentDate"), 'YYYY-MM-DD H:mm:ss').format('YYYY-MM-DD H:mm:ss');
             return currentDate;
         }
     },
-    from: {
+    base: {
         type: String,
-        label: "From currency",
-        autoform: {
-            type: "select2",
-            options: function () {
-                return Cpanel.List.currency();
-            }
-        }
+        label: "Base currency"
     },
-    to: {
-        type: String,
-        label: "To currency",
-        autoform: {
-            type: "select2"
-        }
-    },
-    amount: {
-        type: Number,
-        label: "Amount",
-        decimal: true
+    rates: {
+        type: Rates
     }
 });
 

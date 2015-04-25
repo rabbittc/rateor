@@ -2,22 +2,21 @@ Cpanel.TabularTable.Exchange = new Tabular.Table({
     name: "cpanelExchangeList",
     collection: Cpanel.Collection.Exchange,
     columns: [
-        {data: "exDate", title: "Date"},
+        {data: "dateTime", title: "Date"},
         {
-            data: "from",
-            title: "From Currency",
+            data: "base",
+            title: "Base Currency",
             render: function (val, type, doc) {
-                return Cpanel.Collection.Currency.findOne({_id: val}).symbol;
+                return Cpanel.Collection.Currency.findOne({_id: val})._id;
             }
         },
         {
-            data: "to",
-            title: "To Currency",
+            data: "rates",
+            title: "Rates",
             render: function (val, type, doc) {
-                return Cpanel.Collection.Currency.findOne({_id: val}).symbol;
+                return JSON.stringify(val);
             }
         },
-        {data: "amount", title: "Amount"},
         {
             title: '<i class="fa fa-bars"></i>',
             tmpl: Meteor.isClient && Template.cpanel_exchangeAction
@@ -25,6 +24,6 @@ Cpanel.TabularTable.Exchange = new Tabular.Table({
     ],
     order: [['0', 'desc']],
     columnDefs: [
-        {"width": "12px", "targets": 4}
+        {"width": "12px", "targets": 3}
     ]
 });

@@ -45,7 +45,7 @@ Router.route('sample/myCustomerReportGen', function () {
                 title: function () {
                     return {
                         company: function () {
-                            return Cpanel.Collection.Company.findOne();
+                            return Cpanel.Collection.Setting.findOne().company;
                         },
                         branch: function () {
                             return Cpanel.Collection.Branch.findOne();

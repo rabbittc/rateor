@@ -17,9 +17,6 @@ Template.cpanel_exchange.events({
     'click .update': function (e, t) {
         var data = Cpanel.Collection.Exchange.findOne(this._id);
 
-        var from = data.from;
-        Session.set("toOptions", Cpanel.List.currency({_id: {$ne: from}}));
-
         alertify.exchange(renderTemplate(Template.cpanel_exchangeUpdate, data))
             .set({
                 title: fa("pencil", "Exchange")
@@ -29,7 +26,7 @@ Template.cpanel_exchange.events({
     'click .remove': function (e, t) {
         var id = this._id;
 
-        alertify.confirm("Are you sure to delete [" + this.exDate + "]?")
+        alertify.confirm("Are you sure to delete [" + this.dateTime + "]?")
             .set({
                 onok: function (closeEvent) {
 
@@ -45,8 +42,7 @@ Template.cpanel_exchange.events({
             });
     },
     'click .show': function (e, t) {
-        this.getFrom = Cpanel.Collection.Currency.findOne({_id: this.from}).symbol;
-        this.getTo = Cpanel.Collection.Currency.findOne({_id: this.to}).symbol;
+        this.ratesVal = JSON.stringify(this.rates);
 
         alertify.alert(renderTemplate(Template.cpanel_exchangeShow, this))
             .set({
@@ -63,14 +59,18 @@ Template.cpanel_exchangeInsert.onRendered(function () {
 });
 
 Template.cpanel_exchangeInsert.helpers({
-    toOptions: function () {
-        return Session.get('toOptions');
-    }
-});
+    doc: function () {
+        var baseCurrency = Cpanel.Collection.Setting.findOne().baseCurrency;
 
-Template.cpanel_exchangeInsert.events({
-    'change [name="from"]': function () {
-        fromChange();
+        if (baseCurrency == 'KHR') {
+            var khr = 1;
+        } else if (baseCurrency == 'USD') {
+            var usd = 1;
+        } else {
+            var thb = 1;
+        }
+
+        return {base: baseCurrency, khr: khr, usd: usd, thb: thb};
     }
 });
 
@@ -79,18 +79,6 @@ Template.cpanel_exchangeInsert.events({
  */
 Template.cpanel_exchangeUpdate.onRendered(function () {
     configDate();
-});
-
-Template.cpanel_exchangeUpdate.helpers({
-    toOptions: function () {
-        return Session.get("toOptions");
-    }
-});
-
-Template.cpanel_exchangeUpdate.events({
-    'change [name="from"]': function () {
-        fromChange();
-    }
 });
 
 /**
@@ -121,15 +109,5 @@ AutoForm.hooks({
  */
 var configDate = function () {
     var name = $('[name="exDate"]');
-    DateTimePicker.date(name);
-};
-
-var fromChange = function () {
-    var from = $('[name="from"]').val();
-
-    if (_.isEmpty(from)) {
-        Session.set("toOptions", []);
-    } else {
-        Session.set("toOptions", Cpanel.List.currency({_id: {$ne: from}}));
-    }
+    DateTimePicker.dateTime(name);
 };

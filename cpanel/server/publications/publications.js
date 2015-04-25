@@ -43,3 +43,9 @@ Meteor.publish('cpanelExchange', function () {
         return Cpanel.Collection.Exchange.find();
     }
 });
+/* Setting */
+Meteor.publish('cpanelSetting', function () {
+    if (this.userId) {
+        return Cpanel.Collection.Setting.find();
+    }
+});

@@ -9,29 +9,26 @@ Cpanel.Collection.Branch = new Mongo.Collection("cpanel_branch");
 Cpanel.Schema.Branch = new SimpleSchema({
     khName: {
         type: String,
-        label: function () {
-            return 'Kh Name';
-            //return i18n.get('sample.hello');
-        },
-        //unique: true,
+        label: 'Kh Name',
+        unique: true,
         max: 200
     },
     khShortName: {
         type: String,
         label: "Kh Short Name",
-        //unique: true,
+        unique: true,
         max: 200
     },
     enName: {
         type: String,
         label: "En Name",
-        //unique: true,
+        unique: true,
         max: 200
     },
     enShortName: {
         type: String,
         label: "En Short Name",
-        //unique: true,
+        unique: true,
         max: 200
     },
     khAddress: {

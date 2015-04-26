@@ -13,11 +13,6 @@ Template.cpanel_welcome.helpers({
 });
 
 /**
- * Config
- */
-Template.cpanel_welcomeConfig.helpers({});
-
-/**
  * Hook
  */
 AutoForm.hooks({

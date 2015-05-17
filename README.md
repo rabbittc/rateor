@@ -347,9 +347,9 @@ var currentDate = ReactiveMethod.call("currentDate"); // 'YYYY-MM-DD H:mm:ss'
 - Router name for report: rabbit.routerName`Report`, Url: rabbit/routerName`Report` and rabbit/routerName`ReportGen`
 - Template name: `rabbit_templateName`
 - Template name for report: rabbit_templateName`Report`, rabbit_templateName`ReportGen`
-- Method name: `rabbitMethodName`
-- Publish name: `rabbitPubName`
-- Security method name: `rabbitIfSecurityName`
+- Method name: `rabbit_methodName`
+- Publish name: `rabbit_pubName`
+- Security method name: `rabbit_ifSecurityName`
 - Session: `currentModule` and `currentBranch`
 - Collections:
     - Setting()

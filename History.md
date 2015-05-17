@@ -3,6 +3,9 @@ Meteor boilerplate for Rabbit Training Center.
 
 ## v.Next
 
+## v0.2.5, 2014-05-18
+- fix id generator
+
 ## v0.2.4, 2014-04-27
 - add `numeral:numeral`, `reactive-var` package
 

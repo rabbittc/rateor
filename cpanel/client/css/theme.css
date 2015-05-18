@@ -28,7 +28,7 @@ body {
 /* Not required for template or sticky footer method. */
 
 body > .container {
-    padding: 55px 15px 0;
+    padding: 45px 15px 0;
 }
 
 .container .text-muted {
@@ -113,4 +113,13 @@ code {
 [data-required] label:after {
     content: '*';
     color: red;
+}
+
+/* Meteor status */
+.meteor-status.meteor-status-styled {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+    text-align: center;
+    padding: 10px;
 }

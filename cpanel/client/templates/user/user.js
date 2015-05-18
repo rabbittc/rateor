@@ -34,7 +34,7 @@ Template.cpanel_user.events({
             });
         });
 
-        data.role = roles;
+        data.roles = roles;
 
         alertify.user(renderTemplate(Template.cpanel_userUpdate, data))
             .set({

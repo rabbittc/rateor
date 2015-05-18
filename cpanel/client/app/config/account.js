@@ -1,6 +1,3 @@
-Accounts.config({
-    //forbidClientAccountCreation: true
-});
 Accounts.ui.config({
     passwordSignupFields: "USERNAME_AND_OPTIONAL_EMAIL",
 
@@ -12,7 +9,7 @@ Accounts.ui.config({
             fieldLabel: 'Full name',
             inputType: 'text',
             visible: true,
-            validate: function(value, errorFunction) {
+            validate: function (value, errorFunction) {
                 var fullName = s.trim(value);
 
                 if (!fullName) {
@@ -26,4 +23,3 @@ Accounts.ui.config({
         }
     ]
 });
-

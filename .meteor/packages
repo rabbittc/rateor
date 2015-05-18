@@ -18,7 +18,6 @@ iron:router
 zimme:iron-router-active
 rainhaven:iron-seo
 multiply:iron-router-progress
-francocatena:status
 aldeed:collection2
 dburles:collection-helpers
 aldeed:simple-schema
@@ -55,3 +54,5 @@ theara:moneyjs
 theara:fa-helpers
 reactive-var
 numeral:numeral
+mizzao:user-status
+255kb:meteor-status

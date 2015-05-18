@@ -4,15 +4,6 @@
 var UserProfile = new SimpleSchema({
     fullName: {
         type: String
-    },
-    branch: {
-        type: [String],
-        autoform: {
-            type: "select-multiple",
-            options: function () {
-                return Cpanel.List.branch(false);
-            }
-        }
     }
 });
 
@@ -51,7 +42,7 @@ Cpanel.Schema.User = new SimpleSchema({
     profile: {
         type: UserProfile
     },
-    role: {
+    roles: {
         type: [String],
         autoform: {
             type: "select-multiple",
@@ -59,7 +50,17 @@ Cpanel.Schema.User = new SimpleSchema({
                 return Cpanel.List.role(false);
             }
         }
+    },
+    rolesBranch: {
+        type: [String],
+        autoform: {
+            type: "select-multiple",
+            options: function () {
+                return Cpanel.List.branch(false);
+            }
+        }
     }
+
 });
 
 /**

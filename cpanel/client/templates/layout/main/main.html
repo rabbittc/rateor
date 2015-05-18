@@ -34,8 +34,6 @@
     <!-- Begin page content -->
     <div class="container">
 
-        {{> status}}
-
         {{#unless notFound}}
             {{#if currentUser}}
                 <div class="page-header">
@@ -59,6 +57,8 @@
     <!-- footer -->
     {{> layoutFooter}}
     <!-- /footer -->
+
+    {{> meteorStatus}}
 
     </body>
 </template>

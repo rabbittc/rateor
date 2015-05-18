@@ -7,11 +7,11 @@ Meteor.startup(function () {
                 email: 'rabbit_tc@gmail.com',
                 password: 'super123',
                 profile: {
-                    fullName: 'Rabbit',
-                    branch: ['001']
+                    fullName: 'Rabbit TC'
                 }
             }
         );
         Roles.addUsersToRoles(id, ['super'], 'Cpanel');
+        Meteor.users.update({_id: id}, {$set: {rolesBranch: ['001']}});
     }
 });

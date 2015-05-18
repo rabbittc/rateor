@@ -11,25 +11,29 @@ Meteor.methods({
             id = Accounts.createUser({
                 username: doc.username,
                 password: doc.password,
-                profile: doc.profile
+                profile: doc.profile,
+                rolesBranch: doc.rolesBranch
             });
         } else {
             id = Accounts.createUser({
                 username: doc.username,
                 email: doc.email,
                 password: doc.password,
-                profile: doc.profile
+                profile: doc.profile,
             });
         }
 
         // Add roles
-        _.each(doc.role, function (element) {
+        _.each(doc.roles, function (element) {
             var roleWords = s.words(element, ':');
 
             Roles.addUsersToRoles(id,
                 roleWords[1],
                 roleWords[0]);
         });
+
+        // Add roles for branch
+        Meteor.users.update({_id: id}, {$set: {rolesBranch: doc.rolesBranch}});
 
         return id;
     },
@@ -47,7 +51,8 @@ Meteor.methods({
                 $set: {
                     username: doc.username,
                     profile: doc.profile,
-                    roles: {}
+                    roles: {},
+                    rolesBranch: doc.rolesBranch
                 }
             });
         } else {
@@ -61,7 +66,8 @@ Meteor.methods({
                         }
                     ],
                     profile: doc.profile,
-                    roles: {}
+                    roles: {},
+                    rolesBranch: doc.rolesBranch
                 }
             });
         }
@@ -72,7 +78,7 @@ Meteor.methods({
         }
 
         // Update roles
-        _.each(doc.role, function (element) {
+        _.each(doc.roles, function (element) {
             var roleWords = s.words(element, ':');
 
             Roles.addUsersToRoles(id,

@@ -28,8 +28,8 @@
                 {{> afQuickField name='profile.fullName'}}
             </div>
             <div class="col-xs-6">
-                {{> afQuickField name='role' size=8}}
-                {{> afQuickField name='profile.branch' size=7}}
+                {{> afQuickField name='roles' size=8}}
+                {{> afQuickField name='rolesBranch' size=7}}
             </div>
         </div>
         <button type="submit" class="btn btn-primary">{{fa "floppy-o"}} Save</button>
@@ -49,8 +49,8 @@
                 {{> afQuickField name='profile.fullName'}}
             </div>
             <div class="col-xs-6">
-                {{> afQuickField name='role' size=8}}
-                {{> afQuickField name='profile.branch' size=7}}
+                {{> afQuickField name='roles' size=8}}
+                {{> afQuickField name='rolesBranch' size=7}}
             </div>
         </div>
 
@@ -70,10 +70,10 @@
         <dd>{{emails}}</dd>
         <dt>Full Name</dt>
         <dd>{{profile.fullName}}</dd>
-        <dt>Branch</dt>
-        <dd>{{profile.branch}}</dd>
         <dt>Role</dt>
         <dd>{{roles}}</dd>
+        <dt>Rol For Branch</dt>
+        <dd>{{rolesBranch}}</dd>
     </dl>
 </template>
 

@@ -3,6 +3,9 @@ Meteor boilerplate for Rabbit Training Center.
 
 ## v.Next
 
+## v0.2.6, 2014-05-18
+- fix status, change rolesBranch field in user collection
+
 ## v0.2.5, 2014-05-18
 - fix id generator
 

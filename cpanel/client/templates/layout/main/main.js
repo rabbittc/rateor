@@ -3,10 +3,11 @@
  */
 Template.layout.helpers({
     appName: function () {
-        var group = Session.get('currentModule');
-        if (Meteor.userId() && typeof group !== 'undefined' && typeof Session.get('currentBranch') !== 'undefined') {
-            var groupWord = s.words(group, ':');
-            return Module[groupWord[0]].name;
+        var module = Session.get('currentModule');
+        var branch = Session.get('currentBranch');
+        if (Meteor.userId() && !_.isUndefined(module) && !_.isUndefined(branch)) {
+            var moduleWord = s.words(module, ':');
+            return Module[moduleWord[0]].name;
         }
         return 'Rabbit Project';
     },
@@ -14,21 +15,27 @@ Template.layout.helpers({
         return Session.get('notFound');
     },
     header: function () {
-        var header = Router.current().route.options.header;
-
-        return {
-            title: s.humanize(header.title),
-            sub: s.humanize(header.sub),
-            icon: header.icon
+        var header = {
+            title: null,
+            sub: null,
+            icon: null
         };
+        var getHeader = Router.current().route.options.header;
+        if (_.isUndefined(getHeader)) {
+            return header;
+        }
+        header.title = s.humanize(getHeader.title);
+        header.sub = s.humanize(getHeader.sub);
+        header.icon = getHeader.icon;
+        return header;
     }
 });
 
 Template.layout.events({
     'click .navbar-brand': function () {
-        var currentModule = Session.get('currentModule');
-        if (!_.isUndefined(currentModule)) {
-            var info = Module[currentModule];
+        var module = Session.get('currentModule');
+        if (!_.isUndefined(module)) {
+            var info = Module[module];
             alertify.alert(info.summary)
                 .set({
                     title: info.name + ' ' + info.version

@@ -7,7 +7,7 @@
 
         <ul class="nav navbar-nav navbar-right">
             {{#if currentBranch.show}}
-                <li><a href="{{pathFor 'cpanel.welcome'}}"><i class="fa fa-sitemap"></i> {{currentBranch.title}}
+                <li class="{{isActiveRoute regex='cpanel.welcome'}}"><a href="{{pathFor 'cpanel.welcome'}}"><i class="fa fa-sitemap"></i> {{currentBranch.title}}
                 </a></li>
             {{/if}}
 

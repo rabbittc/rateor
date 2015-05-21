@@ -1,7 +1,7 @@
 /*
  User
  */
-Meteor.publish('cpanelUser', function () {
+Meteor.publish('cpanel_user', function () {
     return Meteor.users.find();
 });
 
@@ -15,7 +15,7 @@ Meteor.publish(null, function () {
 /*
  Company
  */
-Meteor.publish('cpanelCompany', function () {
+Meteor.publish('cpanel_company', function () {
     if (this.userId) {
         return Cpanel.Collection.Company.find();
     }
@@ -24,7 +24,7 @@ Meteor.publish('cpanelCompany', function () {
 /*
  Branch
  */
-Meteor.publish('cpanelBranch', function () {
+Meteor.publish('cpanel_branch', function () {
     if (this.userId) {
         return Cpanel.Collection.Branch.find();
     }
@@ -32,20 +32,26 @@ Meteor.publish('cpanelBranch', function () {
 /*
  Currency
  */
-Meteor.publish('cpanelCurrency', function () {
+Meteor.publish('cpanel_currency', function () {
     if (this.userId) {
         return Cpanel.Collection.Currency.find();
     }
 });
 /* Exchange */
-Meteor.publish('cpanelExchange', function () {
+Meteor.publish('cpanel_exchange', function () {
     if (this.userId) {
         return Cpanel.Collection.Exchange.find();
     }
 });
 /* Setting */
-Meteor.publish('cpanelSetting', function () {
+Meteor.publish('cpanel_setting', function () {
     if (this.userId) {
         return Cpanel.Collection.Setting.find();
+    }
+});
+/* Events */
+Meteor.publish('events', function () {
+    if (this.userId) {
+        return Events.find();
     }
 });

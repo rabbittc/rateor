@@ -1,7 +1,7 @@
 /**
  * Super
  */
-Security.defineMethod("cpanelIfSuper", {
+Security.defineMethod("cpanel_ifSuper", {
     fetch: [],
     transform: null,
     deny: function (type, arg, userId) {
@@ -12,7 +12,7 @@ Security.defineMethod("cpanelIfSuper", {
 /**
  * Admin
  */
-Security.defineMethod("cpanelIfAdmin", {
+Security.defineMethod("cpanel_ifAdmin", {
     fetch: [],
     transform: null,
     deny: function (type, arg, userId) {
@@ -23,7 +23,7 @@ Security.defineMethod("cpanelIfAdmin", {
 /**
  * Super or admin
  */
-Security.defineMethod("cpanelIfSuperOrAdmin", {
+Security.defineMethod("cpanel_ifSuperOrAdmin", {
     fetch: [],
     transform: null,
     deny: function (type, arg, userId) {

@@ -7,6 +7,6 @@ Router.route('cpanel/user', function () {
     header: {title: 'user', sub: '', icon: 'users'},
     title: "User",
     waitOn: function () {
-        return Meteor.subscribe('cpanelUser');
+        return Meteor.subscribe('cpanel_user');
     }
 });

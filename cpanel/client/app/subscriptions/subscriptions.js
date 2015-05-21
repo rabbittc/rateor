@@ -1,6 +1,7 @@
-Meteor.subscribe('cpanelUser');
-Meteor.subscribe('cpanelCompany');
-Meteor.subscribe('cpanelBranch');
-Meteor.subscribe('cpanelCurrency');
-Meteor.subscribe('cpanelExchange');
-Meteor.subscribe('cpanelSetting');
+Meteor.subscribe('cpanel_user');
+Meteor.subscribe('cpanel_company');
+Meteor.subscribe('cpanel_branch');
+Meteor.subscribe('cpanel_currency');
+Meteor.subscribe('cpanel_exchange');
+Meteor.subscribe('cpanel_setting');
+Meteor.subscribe('events');

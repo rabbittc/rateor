@@ -103,5 +103,14 @@ Meteor.methods({
 
         Meteor.users.remove(id);
         return id;
+    },
+    'userCurrent': function (module, branch) {
+        var current = {module: module, branch: branch};
+        Meteor.users.update(this.userId, {
+            $set: {
+                current: current
+            }
+        });
+        return true;
     }
 });

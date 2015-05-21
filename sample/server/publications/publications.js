@@ -1,7 +1,7 @@
 /**
  * Customer
  */
-Meteor.publish('sampleCustomer', function () {
+Meteor.publish('sample_customer', function () {
     if (this.userId) {
         return Sample.Collection.Customer.find();
     }
@@ -10,7 +10,7 @@ Meteor.publish('sampleCustomer', function () {
 /**
  * Address
  */
-Meteor.publish('sampleAddress', function () {
+Meteor.publish('sample_address', function () {
     if (this.userId) {
         return Sample.Collection.Address.find();
     }

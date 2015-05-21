@@ -60,10 +60,10 @@
     {{#autoForm schema=Cpanel.Schema.WelcomeConfig id="cpanel_welcomeConfig" type="normal"}}
         <div class="row">
             <div class="col-xs-6">
-                {{> afQuickField name="module"}}
+                {{> afQuickField name="module" value=value.module}}
             </div>
             <div class="col-xs-6">
-                {{> afQuickField name="branch"}}
+                {{> afQuickField name="branch" value=value.branch}}
             </div>
         </div>
         <button type="submit" class="btn btn-primary">{{fa "angle-double-right"}} Go</button>

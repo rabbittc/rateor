@@ -8,46 +8,35 @@ Template.cpanel_exchange.onRendered(function () {
 
 Template.cpanel_exchange.events({
     'click .insert': function (e, t) {
-        alertify.exchange(renderTemplate(Template.cpanel_exchangeInsert))
-            .set({
-                title: fa("plus", "Exchange")
-            })
+        alertify.exchange(fa("plus", "Exchange"), renderTemplate(Template.cpanel_exchangeInsert))
             .maximize();
     },
     'click .update': function (e, t) {
         var data = Cpanel.Collection.Exchange.findOne(this._id);
-
-        alertify.exchange(renderTemplate(Template.cpanel_exchangeUpdate, data))
-            .set({
-                title: fa("pencil", "Exchange")
-            })
+        alertify.exchange(fa("pencil", "Exchange"), renderTemplate(Template.cpanel_exchangeUpdate, data))
             .maximize();
     },
     'click .remove': function (e, t) {
         var id = this._id;
 
-        alertify.confirm("Are you sure to delete [" + this.dateTime + "]?")
-            .set({
-                onok: function (closeEvent) {
+        alertify.confirm(
+            fa("remove", "Exchange"),
+            "Are you sure to delete [" + this.dateTime + "]?",
+            function () {
 
-                    Cpanel.Collection.Exchange.remove(id, function (error) {
-                        if (error) {
-                            alertify.error(error.message);
-                        } else {
-                            alertify.success("Success");
-                        }
-                    });
-                },
-                title: fa("remove", "Exchange")
-            });
+                Cpanel.Collection.Exchange.remove(id, function (error) {
+                    if (error) {
+                        alertify.error(error.message);
+                    } else {
+                        alertify.success("Success");
+                    }
+                });
+            },
+            null);
     },
     'click .show': function (e, t) {
         this.ratesVal = JSON.stringify(this.rates);
-
-        alertify.alert(renderTemplate(Template.cpanel_exchangeShow, this))
-            .set({
-                title: fa("eye", "Exchange")
-            });
+        alertify.alert(fa("eye", "Exchange"), renderTemplate(Template.cpanel_exchangeShow, this));
     }
 });
 
@@ -108,6 +97,6 @@ AutoForm.hooks({
  * Functions
  */
 var configDate = function () {
-    var name = $('[name="exDate"]');
+    var name = $('[name="dateTime"]');
     DateTimePicker.dateTime(name);
 };

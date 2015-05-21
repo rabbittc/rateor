@@ -313,10 +313,7 @@ bootbox.dialog({
 // How to use custom
 createNewAlertify("customer"); // Call in template create/render
 
-alertify.customer(renderTemplate(Template.sample_customerInsert))
-    .set({
-        title: "<i class='fa fa-plus'></i> Customer"
-    })
+alertify.customer("<i class='fa fa-plus'></i> Customer", renderTemplate(Template.sample_customerInsert))
     .maximize(); // auto full screen
 
 // How to create multiple 
@@ -342,14 +339,16 @@ Meteor.call('currentDate', function (error, result) {
 var currentDate = ReactiveMethod.call("currentDate"); // 'YYYY-MM-DD H:mm:ss'
 ```
 
+## Namespace
+- Router: `rabbit.routerName` (name), `rabbit/routerName` (url)
+- Router for report: rabbit.routerName`Report` (name), rabbit/routerName`Report` and rabbit/routerName`ReportGen` (url)
+- Template: `rabbit_templateName`
+- Template for report: rabbit_templateName`Report`, rabbit_templateName`ReportGen`
+- Method: `rabbit_methodName`
+- Publish/Sub: `rabbit_pubName`
+- Security method: `rabbit_ifSecurityName`
+    
 ## Note
-- Router name: `rabbit.routerName`, Url `rabbit/routerName`
-- Router name for report: rabbit.routerName`Report`, Url: rabbit/routerName`Report` and rabbit/routerName`ReportGen`
-- Template name: `rabbit_templateName`
-- Template name for report: rabbit_templateName`Report`, rabbit_templateName`ReportGen`
-- Method name: `rabbit_methodName`
-- Publish name: `rabbit_pubName`
-- Security method name: `rabbit_ifSecurityName`
 - Session: `currentModule` and `currentBranch`
 - Collections:
     - Setting()

@@ -61,11 +61,11 @@ Cpanel.List = {
         var userId = _.isUndefined(userId) ? Meteor.userId() : userId;
         var list = [{label: "(Select One)", value: ""}];
 
-        Meteor.users.findOne(userId).rolesBranch
-            .forEach(function (branch) {
-                var label = Cpanel.Collection.Branch.findOne(branch).enName;
-                list.push({label: label, value: branch});
-            });
+        var getUser = Meteor.users.findOne(userId);
+        _.each(getUser.rolesBranch, function (branch) {
+            var label = Cpanel.Collection.Branch.findOne(branch);
+            list.push({label: label.enName, value: branch});
+        });
 
         return list;
     }

@@ -14,10 +14,13 @@ twbs:bootstrap
 fortawesome:fontawesome
 accounts-password
 ian:accounts-ui-bootstrap-3
+mizzao:user-status
+255kb:meteor-status
 iron:router
 zimme:iron-router-active
 rainhaven:iron-seo
 multiply:iron-router-progress
+matb33:collection-hooks
 aldeed:collection2
 dburles:collection-helpers
 aldeed:simple-schema
@@ -54,5 +57,4 @@ theara:moneyjs
 theara:fa-helpers
 reactive-var
 numeral:numeral
-mizzao:user-status
-255kb:meteor-status
+theara:events

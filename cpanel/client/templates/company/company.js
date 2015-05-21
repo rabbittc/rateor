@@ -10,10 +10,7 @@ Template.cpanel_company.events({
     'click .update': function (e, t) {
         var data = Cpanel.Collection.Company.findOne();
 
-        alertify.company(renderTemplate(Template.cpanel_companyUpdate, data))
-            .set({
-                title: fa("pencil", "Company")
-            })
+        alertify.company(fa("pencil", "Company"), renderTemplate(Template.cpanel_companyUpdate, data))
             .maximize();
     }
 });

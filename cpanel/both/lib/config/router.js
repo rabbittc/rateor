@@ -13,13 +13,9 @@ Router.configure({
 });
 
 /**
- * BeforeAction for cpanel welcome
+ * Before action for cpanel welcome
  */
 Router.onBeforeAction(function () {
-
-    // Clear all auth session
-    Session.clearAuth();
-
     // Set page not found session
     Session.set('notFound', false);
 
@@ -33,14 +29,13 @@ Router.onBeforeAction(function () {
  * BeforeAction for all
  */
 Router.onBeforeAction(function () {
-
     // Set page not found session
     Session.set('notFound', false);
 
-    if (!Meteor.userId() || typeof Session.get('currentModule') === 'undefined' || typeof Session.get('currentBranch') === 'undefined') {
-        // Clear all auth session
-        Session.clearAuth();
+    var module = Session.get('currentModule');
+    var branch = Session.get('currentBranch');
 
+    if (!Meteor.userId() || _.isUndefined(module) || _.isUndefined(branch)) {
         this.redirect('cpanel.welcome');
     } else {
         this.next();

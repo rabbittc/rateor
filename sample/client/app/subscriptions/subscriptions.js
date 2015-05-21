@@ -1,2 +1,2 @@
-Meteor.subscribe('sampleCustomer');
-Meteor.subscribe('sampleAddress');
+Meteor.subscribe('sample_customer');
+Meteor.subscribe('sample_address');

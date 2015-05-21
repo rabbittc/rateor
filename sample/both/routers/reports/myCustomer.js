@@ -16,9 +16,6 @@ Router.route('sample/myCustomerReport', function () {
 });
 
 Router.route('sample/myCustomerReportGen', function () {
-
-    var q = this.params.query;
-
     // Config layout
     this.layout('layoutReport', {
         // Page setup: Size: a4, a5, mini | Orientation: portrait, landscape
@@ -33,6 +30,7 @@ Router.route('sample/myCustomerReportGen', function () {
     });
 
     // Generate
+    var q = this.params.query;
     this.render('sample_myCustomerReportGen', {
         data: function () {
 
@@ -45,7 +43,7 @@ Router.route('sample/myCustomerReportGen', function () {
                 title: function () {
                     return {
                         company: function () {
-                            return Cpanel.Collection.Setting.findOne().company;
+                            return Cpanel.Collection.Setting.findOne();
                         },
                         branch: function () {
                             return Cpanel.Collection.Branch.findOne();

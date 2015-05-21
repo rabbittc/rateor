@@ -3,6 +3,14 @@ Meteor boilerplate for Rabbit Training Center.
 
 ## v.Next
 
+## v0.2.8, 2014-05-21
+- add meteor status (check user online|offline)
+- create new Events package to track user activity
+- add collection hooks package
+
+## v0.2.7, 2014-05-18
+- add title param on alertify
+
 ## v0.2.6, 2014-05-18
 - fix status, change rolesBranch field in user collection
 

@@ -8,44 +8,33 @@ Template.cpanel_branch.onRendered(function () {
 
 Template.cpanel_branch.events({
     'click .insert': function (e, t) {
-        alertify.branch(renderTemplate(Template.cpanel_branchInsert))
-            .set({
-                title: fa("plus", "Branch")
-            })
+        alertify.branch(fa("plus", "Branch"), renderTemplate(Template.cpanel_branchInsert))
             .maximize();
     },
     'click .update': function (e, t) {
         var data = Cpanel.Collection.Branch.findOne(this._id);
-
-        alertify.branch(renderTemplate(Template.cpanel_branchUpdate, data))
-            .set({
-                title: fa("pencil", "Branch")
-            })
+        alertify.branch(fa("pencil", "Branch"), renderTemplate(Template.cpanel_branchUpdate, data))
             .maximize();
     },
     'click .remove': function (e, t) {
         var id = this._id;
 
-        alertify.confirm("Are you sure to delete [" + id + "]?")
-            .set({
-                onok: function (closeEvent) {
-
-                    Cpanel.Collection.Branch.remove(id, function (error) {
-                        if (error) {
-                            alertify.error(error.message);
-                        } else {
-                            alertify.success("Success");
-                        }
-                    });
-                },
-                title: fa("remove", "Branch")
-            });
+        alertify.confirm(
+            fa("remove", "Branch"),
+            "Are you sure to delete [" + id + "]?",
+            function () {
+                Cpanel.Collection.Branch.remove(id, function (error) {
+                    if (error) {
+                        alertify.error(error.message);
+                    } else {
+                        alertify.success("Success");
+                    }
+                });
+            },
+            null);
     },
     'click .show': function (e, t) {
-        alertify.alert(renderTemplate(Template.cpanel_branchShow, this))
-            .set({
-                title: fa("eye", "Branch")
-            });
+        alertify.alert(fa("eye", "Branch"), renderTemplate(Template.cpanel_branchShow, this));
     }
 });
 

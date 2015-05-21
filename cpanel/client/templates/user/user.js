@@ -8,10 +8,7 @@ Template.cpanel_user.onRendered(function () {
 
 Template.cpanel_user.events({
     'click .insert': function (e, t) {
-        alertify.user(renderTemplate(Template.cpanel_userInsert))
-            .set({
-                title: fa("plus", "User")
-            })
+        alertify.user(fa("plus", "User"), renderTemplate(Template.cpanel_userInsert))
             .maximize();
     },
     'click .update': function (e, t) {
@@ -36,29 +33,25 @@ Template.cpanel_user.events({
 
         data.roles = roles;
 
-        alertify.user(renderTemplate(Template.cpanel_userUpdate, data))
-            .set({
-                title: fa("pencil", "User")
-            })
+        alertify.user(fa("pencil", "User"), renderTemplate(Template.cpanel_userUpdate, data))
             .maximize();
     },
     'click .remove': function (e, t) {
         var id = this._id;
 
-        alertify.confirm("Are you sure to delete [" + this.username + "]?")
-            .set({
-                onok: function (closeEvent) {
-
-                    Meteor.call('userRemove', id, function (error, result) {
-                        if (error) {
-                            alertify.error(error.message);
-                        } else {
-                            alertify.success("Success");
-                        }
-                    });
-                },
-                title: fa("remove", "Customer")
-            });
+        alertify.confirm(
+            fa("remove", "User"),
+            "Are you sure to delete [" + this.username + "]?",
+            function () {
+                Meteor.call('userRemove', id, function (error, result) {
+                    if (error) {
+                        alertify.error(error.message);
+                    } else {
+                        alertify.success("Success");
+                    }
+                });
+            },
+            null);
     },
     'click .show': function (e, t) {
 
@@ -83,10 +76,7 @@ Template.cpanel_user.events({
             this.roles = "";
         }
 
-        alertify.alert(renderTemplate(Template.cpanel_userShow, this))
-            .set({
-                title: fa("eye", "User")
-            });
+        alertify.alert(fa("eye", "User"), renderTemplate(Template.cpanel_userShow, this));
     }
 });
 

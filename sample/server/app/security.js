@@ -1,7 +1,7 @@
 /**
  * Admin
  */
-Security.defineMethod("sampleIfAdmin", {
+Security.defineMethod("sample_ifAdmin", {
     fetch: [],
     transform: null,
     deny: function (type, arg, userId) {
@@ -12,7 +12,7 @@ Security.defineMethod("sampleIfAdmin", {
 /**
  * General
  */
-Security.defineMethod("sampleIfGeneral", {
+Security.defineMethod("sample_ifGeneral", {
     fetch: [],
     transform: null,
     deny: function (type, arg, userId) {
@@ -23,7 +23,7 @@ Security.defineMethod("sampleIfGeneral", {
 /**
  * Reporter
  */
-Security.defineMethod("sampleIfReporter", {
+Security.defineMethod("sample_ifReporter", {
     fetch: [],
     transform: null,
     deny: function (type, arg, userId) {

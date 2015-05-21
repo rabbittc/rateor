@@ -51,6 +51,10 @@ Sample.Schema.Customer = new SimpleSchema({
         label: "Email",
         regEx: SimpleSchema.RegEx.Email,
         optional: true
+    },
+    cpanel_branchId: {
+        type: String,
+        label: "Branch"
     }
 });
 

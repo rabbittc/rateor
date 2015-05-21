@@ -1,3 +1,6 @@
+/**
+ * Config UI
+ */
 Accounts.ui.config({
     passwordSignupFields: "USERNAME_AND_OPTIONAL_EMAIL",
 
@@ -23,3 +26,23 @@ Accounts.ui.config({
         }
     ]
 });
+
+/**
+ * Events on login/out
+ */
+Accounts.onLogin(function () {
+    Session.setPersistent('currentUserId', Meteor.userId());
+    Events.track({
+        type: 'Login'
+    });
+});
+
+accountsUIBootstrap3.logoutCallback = function (error) {
+    if (!error) {
+        Events.track({
+            type: 'Logout',
+            userId: Session.get('currentUserId')
+        });
+        Session.clear();
+    }
+};

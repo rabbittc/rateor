@@ -16,10 +16,11 @@ accounts-password
 ian:accounts-ui-bootstrap-3
 mizzao:user-status
 255kb:meteor-status
+sacha:spin
 iron:router
+multiply:iron-router-progress
 zimme:iron-router-active
 rainhaven:iron-seo
-multiply:iron-router-progress
 matb33:collection-hooks
 aldeed:collection2
 dburles:collection-helpers
@@ -33,7 +34,6 @@ rajit:bootstrap3-datepicker
 aldeed:autoform-bs-datepicker
 tsega:bootstrap3-datetimepicker
 aldeed:autoform-bs-datetimepicker
-loftsteinn:bootstrap3-daterangepicker
 aldeed:tabular
 mizzao:bootboxjs
 ovcharik:alertifyjs
@@ -58,3 +58,5 @@ theara:fa-helpers
 reactive-var
 numeral:numeral
 theara:events
+xamfoo:reactive-obj
+frozeman:template-var

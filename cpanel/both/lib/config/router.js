@@ -2,7 +2,8 @@
  * Config
  */
 Router.configure({
-    layoutTemplate: 'layout',
+    layoutTemplate: 'mainLayout',
+    //loadingTemplate: 'loading',
     notFoundTemplate: 'notFound',
     progress: true,
     progressTick: true,

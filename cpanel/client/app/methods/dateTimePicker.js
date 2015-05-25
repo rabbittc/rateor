@@ -30,7 +30,7 @@ DateTimePicker = {
         element.daterangepicker(
             {
                 format: 'YYYY-MM-DD',
-                separator: ' to '
+                separator: ' To '
             });
     },
     dateTimeRange: function (element) {
@@ -38,7 +38,7 @@ DateTimePicker = {
             {
                 timePicker: true,
                 format: 'YYYY-MM-DD H:mm:ss',
-                separator: ' to ',
+                separator: ' To ',
                 timePickerIncrement: 30,
                 timePicker12Hour: false,
                 timePickerSeconds: true

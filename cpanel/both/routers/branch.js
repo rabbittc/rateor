@@ -5,8 +5,5 @@ Router.route('cpanel/branch', function () {
 }, {
     name: 'cpanel.branch',
     header: {title: 'branch', sub: '', icon: 'sitemap'},
-    title: "Branch",
-    waitOn: function () {
-        return Meteor.subscribe('cpanel_branch');
-    }
+    title: "Branch"
 });

@@ -5,8 +5,5 @@ Router.route('sample/customer', function () {
 }, {
     name: 'sample.customer',
     header: {title: 'customer', sub: '', icon: 'user-plus'},
-    title: "Customer",
-    waitOn: function () {
-        return Meteor.subscribe('sample_customer');
-    }
+    title: "Customer"
 });

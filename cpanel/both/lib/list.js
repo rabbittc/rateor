@@ -68,5 +68,43 @@ Cpanel.List = {
         });
 
         return list;
+    },
+    user: function (selectOne) {
+        var list = [];
+        if (!_.isEqual(selectOne, false)) {
+            list.push({label: "(Select One)", value: ""});
+        }
+
+        Meteor.users.find()
+            .forEach(function (obj) {
+                list.push({label: obj.username + ' (' + obj.profile.fullName + ')', value: obj._id});
+            });
+
+        return list;
+    },
+    type: function (selectOne) {
+        var list = [];
+        if (!_.isEqual(selectOne, false)) {
+            list.push({label: "(Select One)", value: ""});
+        }
+
+        list.push({label: 'Insert', value: 'Insert'});
+        list.push({label: 'Update', value: 'Update'});
+        list.push({label: 'Remove', value: 'Remove'});
+        list.push({label: 'Report', value: 'Report'});
+        list.push({label: 'Login', value: 'Login'});
+        list.push({label: 'Logout', value: 'Logout'});
+        return list;
+    },
+    module: function (selectOne) {
+        var list = [];
+        if (!_.isEqual(selectOne, false)) {
+            list.push({label: "(Select One)", value: ""});
+        }
+        _.each(Module, function (val, key) {
+            list.push({label: Module[key].name, value: key});
+        });
+
+        return list;
     }
 };

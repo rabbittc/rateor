@@ -5,8 +5,5 @@ Router.route('cpanel/exchange', function () {
 }, {
     name: 'cpanel.exchange',
     header: {title: 'exchange', icon: 'exchange'},
-    title: "Exchange",
-    waitOn: function () {
-        return Meteor.subscribe('cpanel_exchange');
-    }
+    title: "Exchange"
 });

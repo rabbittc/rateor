@@ -2,27 +2,6 @@
 <template name="cpanel_setting">
     {{#autoForm collection=Cpanel.Collection.Setting id="cpanel_setting" doc=this type="update"}}
         <div class="panel panel-default">
-            <div class="panel-heading">Company</div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        {{> afQuickField name='company.khName'}}
-                        {{> afQuickField name='company.khShortName'}}
-                        {{> afQuickField name='company.enName'}}
-                        {{> afQuickField name='company.enShortName'}}
-                        {{> afQuickField name='company.khAddress'}}
-                    </div>
-                    <div class="col-md-6">
-                        {{> afQuickField name='company.enAddress'}}
-                        {{> afQuickField name='company.telephone'}}
-                        {{> afQuickField name='company.email'}}
-                        {{> afQuickField name='company.website'}}
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="panel panel-default">
             <div class="panel-heading">Base currency</div>
             <div class="panel-body">
                 <div class="row">

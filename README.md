@@ -339,6 +339,9 @@ Meteor.call('currentDate', function (error, result) {
 var currentDate = ReactiveMethod.call("currentDate"); // 'YYYY-MM-DD H:mm:ss'
 ```
 
+## Subscriptions
+- Subscriptions of cpanel is declared at global. 
+
 ## Namespace
 - Router: `rabbit.routerName` (name), `rabbit/routerName` (url)
 - Router for report: rabbit.routerName`Report` (name), rabbit/routerName`Report` and rabbit/routerName`ReportGen` (url)

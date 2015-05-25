@@ -20,7 +20,7 @@
 
     <!--Title-->
     <div class="report-title">
-        <span class="report-company-name">{{title.company.company.enName}}</span><br>
+        <span class="report-company-name">{{title.company.enName}}</span><br>
         Branch Office: {{title.branch.enName}}<br>
         {{title.reportName}}<br>
         Date: {{title.date}}<br>
@@ -38,32 +38,36 @@
     </table>
 
     <!--Content-->
-    <table class="report-content">
-        <thead class="report-content-header">
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Gender</th>
-            <th>Address</th>
-            <th>Telephone</th>
-            <th>Email</th>
-        </tr>
-        </thead>
-
-        <tbody class="report-content-body">
-        {{#each content}}
+    {{#if content}}
+        <table class="report-content">
+            <thead class="report-content-header">
             <tr>
-                <td>{{_id}}</td>
-                <td>{{name}}</td>
-                <td>{{gender}}</td>
-                <td>{{address}}</td>
-                <td>{{telephone}}</td>
-                <td>{{email}}</td>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Address</th>
+                <th>Telephone</th>
+                <th>Email</th>
             </tr>
-        {{/each}}
-        </tbody>
-    </table>
+            </thead>
 
-    <!--Footer-->
+            <tbody class="report-content-body">
+            {{#each content}}
+                <tr>
+                    <td>{{_id}}</td>
+                    <td>{{name}}</td>
+                    <td>{{gender}}</td>
+                    <td>{{address}}</td>
+                    <td>{{telephone}}</td>
+                    <td>{{email}}</td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    {{else}}
+        {{> noResults}}
+    {{/if}}
 
+    <!--Sign-->
+    {{> signFooter}}
 </template>

@@ -3,6 +3,12 @@ Meteor boilerplate for Rabbit Training Center.
 
 ## v.Next
 
+## v0.2.9, 2014-05-25
+- fix subscriptions (should be don't call in global, please call at `waitOn` of own router)
+- update sample report
+- create events report on cpanel
+- create own library of bs3-daterangepicker (compatibility)
+
 ## v0.2.8, 2014-05-21
 - add meteor status (check user online|offline)
 - create new Events package to track user activity

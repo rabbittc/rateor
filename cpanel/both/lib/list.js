@@ -8,7 +8,7 @@ Cpanel.List = {
 
         Cpanel.Collection.Currency.find(selector)
             .forEach(function (obj) {
-                list.push({label: obj._id + ' (' + obj.symbol + ')', value: obj._id})
+                list.push({label: obj._id + ' | ' + obj.code, value: obj._id})
             });
 
         return list;

@@ -3,6 +3,9 @@ Meteor boilerplate for Rabbit Training Center.
 
 ## v.Next
 
+## v0.3.0, 2014-05-29
+- chang field in currency collection (_id: 1, code: KHR, name: Cambodia Riel, symbol: ?)
+
 ## v0.2.9, 2014-05-25
 - fix subscriptions (should be don't call in global, please call at `waitOn` of own router)
 - update sample report

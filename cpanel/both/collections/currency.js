@@ -7,19 +7,22 @@ Cpanel.Collection.Currency = new Mongo.Collection("cpanel_currency");
  * Schema
  */
 Cpanel.Schema.Currency = new SimpleSchema({
-    _id: {
+    code: {
         type: String,
-        label: "ID"
+        label: "Code",
+        unique: true
     },
     name: {
         type: String,
         label: "Name",
-        max: 100
+        max: 100,
+        unique: true
     },
     symbol: {
         type: String,
         label: "Symbol",
-        max: 100
+        max: 100,
+        unique: true
     }
 });
 

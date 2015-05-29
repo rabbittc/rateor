@@ -8,7 +8,7 @@ Cpanel.TabularTable.Exchange = new Tabular.Table({
             title: "Base Currency",
             render: function (val, type, doc) {
                 var currency = Cpanel.Collection.Currency.findOne({_id: val});
-                return currency._id;
+                return currency.code;
             }
         },
         {

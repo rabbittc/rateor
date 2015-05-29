@@ -17,7 +17,7 @@ createNewAlertify = function (names) {
                             options: {
                                 maximizable: true,
                                 closableByDimmer: false,
-                                resizable: true,
+                                resizable: false,
                                 transition: "zoom"
                             }
                         };

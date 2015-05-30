@@ -1,3 +1,5 @@
+var module = 'Cpanel';
+
 Meteor.methods({
     userInsert: function (doc) {
         check(doc, Object);

@@ -16,6 +16,7 @@ Router.route('sample/myCustomerReportGen', function () {
         }
     });
 
+    // Render template
     var q = this.params.query;
     this.render('sample_myCustomerReportGen', {
         data: function () {

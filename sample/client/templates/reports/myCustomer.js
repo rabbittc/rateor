@@ -3,9 +3,6 @@ Template.sample_myCustomerReport.onRendered(function () {
     DateTimePicker.dateRange(name);
 });
 
-Template.sample_myCustomerReportGen.onCreated(function () {
-});
-
 Template.sample_myCustomerReportGen.helpers({
     title: function () {
         var self = this;

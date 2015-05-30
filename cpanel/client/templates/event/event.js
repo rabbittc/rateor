@@ -28,7 +28,7 @@ Template.cpanel_eventReportGen.helpers({
         var self = this;
         var date = s.words(self.date, ' To ');
         var fDate = moment(date[0], 'YYYY-MM-DD').toDate();
-        var tDate = moment(date[1], 'YYYY-MM-DD').add(1, 'day').toDate();
+        var tDate = moment(date[1], 'YYYY-MM-DD').add(1, 'days').toDate();
 
         var selector = {};
         selector.userId = self.user;

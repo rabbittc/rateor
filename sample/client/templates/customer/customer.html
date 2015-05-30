@@ -33,7 +33,7 @@
                     <div class="input-group select2-bootstrap-append">
                         {{> afFieldInput name='address'}}
                         <span class="input-group-addon">
-                            <a href="#" class="addressInsertAddon">
+                            <a href="#" class="addressAddon">
                                 {{fa "plus"}}
                             </a>
                         </span>
@@ -50,21 +50,6 @@
 
         <button type="submit" class="btn btn-primary">{{fa "floppy-o"}} Save</button>
         <button type="reset" class="btn btn-default">{{fa "refresh"}} Reset</button>
-    {{/autoForm}}
-</template>
-
-<!--Insert address addon-->
-<template name="sample_addressInsertAddon">
-    {{#autoForm collection=Sample.Collection.Address id="sample_addressInsertAddon" type="insert"}}
-
-        <div class="row">
-            <div class="col-md-12">
-                {{> afQuickField name='name'}}
-            </div>
-        </div>
-
-        <button type="submit" class="btn btn-primary">{{fa "floppy-o"}} Save</button>
-
     {{/autoForm}}
 </template>
 
@@ -86,7 +71,7 @@
                     <div class="input-group  select2-bootstrap-append">
                         {{> afFieldInput name='address'}}
                         <span class="input-group-addon">
-                            <a href="#" class="addressInsertAddon">
+                            <a href="#" class="addressAddon">
                                 {{fa "plus"}}
                             </a>
                         </span>
@@ -125,4 +110,19 @@
         <dt>Email</dt>
         <dd>{{email}}</dd>
     </dl>
+</template>
+
+<!--Insert address addon-->
+<template name="sample_addressAddon">
+    {{#autoForm collection=Sample.Collection.Address id="sample_addressAddon" type="insert"}}
+
+        <div class="row">
+            <div class="col-md-12">
+                {{> afQuickField name='name'}}
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">{{fa "floppy-o"}} Save</button>
+
+    {{/autoForm}}
 </template>

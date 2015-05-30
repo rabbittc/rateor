@@ -1,26 +1,37 @@
+var indexTpl = Template.sample_customer;
+var insertTpl = Template.sample_customerInsert;
+var updateTpl = Template.sample_customerUpdate;
+var showTpl = Template.sample_customerShow;
+var addressAddonTpl = Template.sample_addressAddon;
+
 /**
  * Index
  */
-Template.sample_customer.onCreated(function () {
+indexTpl.onCreated(function () {
     // Create new  alertify
     createNewAlertify(["customer", "addressAddon"]);
 });
 
-Template.sample_customer.helpers({
+indexTpl.onRendered(function () {
+    //
+});
+
+indexTpl.helpers({
     selector: function () {
         var pattern = Session.get('currentBranch');
         //var pattern = new RegExp("^" + branchId.current.branch);
         return {cpanel_branchId: pattern};
     }
 });
-Template.sample_customer.events({
+
+indexTpl.events({
     'click .insert': function (e, t) {
-        alertify.customer(fa("plus", "Customer"), renderTemplate(Template.sample_customerInsert))
+        alertify.customer(fa("plus", "Customer"), renderTemplate(insertTpl))
             .maximize();
     },
     'click .update': function (e, t) {
         var data = Sample.Collection.Customer.findOne(this._id);
-        alertify.customer(fa("pencil", "Customer"), renderTemplate(Template.sample_customerUpdate, data))
+        alertify.customer(fa("pencil", "Customer"), renderTemplate(updateTpl, data))
             .maximize();
     },
     'click .remove': function (e, t) {
@@ -44,33 +55,37 @@ Template.sample_customer.events({
     },
     'click .show': function (e, t) {
         var data = Sample.Collection.Customer.findOne({_id: this._id});
-        alertify.alert(fa("eye", "Customer"), renderTemplate(Template.sample_customerShow, data));
+        alertify.alert(fa("eye", "Customer"), renderTemplate(showTpl, data));
     }
+});
+
+indexTpl.onDestroyed(function () {
+    //
 });
 
 /**
  * Insert
  */
-Template.sample_customerInsert.onRendered(function () {
+insertTpl.onRendered(function () {
     datePicker();
 });
 
-Template.sample_customerInsert.events({
-    'click .addressInsertAddon': function (e, t) {
-        alertify.addressAddon(fa("plus", "Address"), renderTemplate(Template.sample_addressInsertAddon))
+insertTpl.events({
+    'click .addressAddon': function (e, t) {
+        alertify.addressAddon(fa("plus", "Address"), renderTemplate(addressAddonTpl))
     }
 });
 
 /**
  * Update
  */
-Template.sample_customerUpdate.onRendered(function () {
+updateTpl.onRendered(function () {
     datePicker();
 });
 
-Template.sample_customerUpdate.events({
-    'click .addressInsertAddon': function (e, t) {
-        alertify.addressAddon(fa("plus", "Address"), renderTemplate(Template.sample_addressInsertAddon));
+updateTpl.events({
+    'click .addressAddon': function (e, t) {
+        alertify.addressAddon(fa("plus", "Address"), renderTemplate(addressAddonTpl));
     }
 });
 
@@ -82,8 +97,8 @@ AutoForm.hooks({
     sample_customerInsert: {
         before: {
             insert: function (doc) {
-                var branchPre = Session.get('currentBranch') + '-';
-                doc._id = idGenerator.genWithPrefix(Sample.Collection.Customer, branchPre, 3);
+                var prefix = Session.get('currentBranch') + '-';
+                doc._id = idGenerator.genWithPrefix(Sample.Collection.Customer, prefix, 3);
                 doc.cpanel_branchId = Session.get('currentBranch');
                 return doc;
             }

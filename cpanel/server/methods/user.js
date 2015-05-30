@@ -35,6 +35,12 @@ Meteor.methods({
         // Add roles for branch
         Meteor.users.update({_id: id}, {$set: {rolesBranch: doc.rolesBranch}});
 
+        // Event
+        Events.trackInsert({
+            description: doc,
+            module: module
+        });
+
         return id;
     },
     userUpdate: function (id, doc) {
@@ -86,6 +92,12 @@ Meteor.methods({
                 roleWords[0]);
         });
 
+        // Event
+        Events.trackUpdate({
+            description: id + ' To ' + EJSON.stringify(doc),
+            module: module
+        });
+
         return true;
     },
     userRemove: function (id) {
@@ -102,15 +114,13 @@ Meteor.methods({
         }
 
         Meteor.users.remove(id);
-        return id;
-    },
-    'userCurrent': function (module, branch) {
-        var current = {module: module, branch: branch};
-        Meteor.users.update(this.userId, {
-            $set: {
-                current: current
-            }
+
+        // Event
+        Events.trackRemove({
+            description: user,
+            module: module
         });
-        return true;
+
+        return id;
     }
 });

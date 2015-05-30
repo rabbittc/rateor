@@ -2,8 +2,13 @@
 Meteor boilerplate for Rabbit Training Center.
 
 ## v.Next
+- add sample events track on report
 
-## v0.3.0, 2014-05-29
+## v0.3.2, 2014-05-30
+- create sample events track
+- add new `xamfoo:reactive-obj`, `frozeman:template-var` packages
+
+## v0.3.1, 2014-05-29
 - fix create new alertify
 
 ## v0.3.0, 2014-05-29

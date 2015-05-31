@@ -3,14 +3,7 @@ Cpanel.TabularTable.Exchange = new Tabular.Table({
     collection: Cpanel.Collection.Exchange,
     columns: [
         {data: "dateTime", title: "Date"},
-        {
-            data: "base",
-            title: "Base Currency",
-            render: function (val, type, doc) {
-                var currency = Cpanel.Collection.Currency.findOne({_id: val});
-                return currency.code;
-            }
-        },
+        {data: "base", title: "Base Currency"},
         {
             data: "rates",
             title: "Rates",

@@ -4,6 +4,9 @@ Meteor boilerplate for Rabbit Training Center.
 ## v.Next
 - add sample events track on report
 
+## v0.3.5, 2014-06-03
+- fix sample report
+
 ## v0.3.4, 2014-05-31
 - fix currency number
 

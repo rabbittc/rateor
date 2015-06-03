@@ -11,18 +11,16 @@ Template.sample_myCustomerReportGen.helpers({
             company: function () {
                 return Cpanel.Collection.Company.findOne();
             },
-            branch: function () {
-                return Cpanel.Collection.Branch.findOne();
-            },
             reportName: 'My Customer Report',
             date: self.date
         };
     },
     header: function () {
         var self = this;
+        var branch = Cpanel.Collection.Branch.findOne();
 
         return [
-            {col1: 'Staff: Rabbit', col2: 'Customer: ' + self.name, col3: 'Filter: ....'},
+            {col1: 'Branch: ' + branch.enName, col2: 'Customer: ' + self.name, col3: 'Filter: ....'},
             {col1: 'Gender: ', col2: 'Filter: ...........'}
         ];
     },
